@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://nd3oojjoo2t0" path="res://scripts/game.gd" id="1_feb5d"]
 [ext_resource type="Texture2D" uid="uid://curqj2oymaihq" path="res://assets/Sprite-0002.png" id="2_feb5d"]
 [ext_resource type="Script" uid="uid://bc2u7vb4gvivw" path="res://scripts/burger.gd" id="3_fc0e3"]
+[ext_resource type="FontFile" uid="uid://bh6jvsa7eqolq" path="res://text/Jersey10-Regular.ttf" id="4_fc0e3"]
 
 [sub_resource type="Animation" id="Animation_feb5d"]
 resource_name = "PRESSED"
@@ -78,6 +79,18 @@ script = ExtResource("3_fc0e3")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton" unique_id=1111794381]
 libraries/ = SubResource("AnimationLibrary_7jktm")
 
+[node name="MONEYCOUNT" type="RichTextLabel" parent="." unique_id=1217261146]
+offset_left = -0.19999981
+offset_top = 2.1
+offset_right = 597.6
+offset_bottom = 181.1
+scale = Vector2(0.07261277, 0.07261277)
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 160
+text = "$ "
+horizontal_alignment = 1
+
 [connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

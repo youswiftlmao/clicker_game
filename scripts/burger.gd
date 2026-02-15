@@ -17,5 +17,3 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("unhover")
-func _physics_process(delta: float) -> void:
-	print(scale)
