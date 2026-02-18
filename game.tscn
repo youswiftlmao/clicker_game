@@ -6,11 +6,16 @@
 [ext_resource type="FontFile" uid="uid://bh6jvsa7eqolq" path="res://text/Jersey10-Regular.ttf" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cn1ke6hsw4ouk" path="res://assets/shop area.png" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cffymdsilj704" path="res://assets/BUTTERR.png" id="6_hve3p"]
+[ext_resource type="Script" uid="uid://1sjsqm5iy5ui" path="res://scripts/buttered_buns.gd" id="7_80cx4"]
 [ext_resource type="Texture2D" uid="uid://cvwamqierilmm" path="res://assets/FONT AREA.png" id="7_iotsf"]
 [ext_resource type="Texture2D" uid="uid://d2bt51p85fqq2" path="res://assets/MEATT.png" id="7_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://b4x7k8ju3bvf" path="res://assets/FIREEE.png" id="8_iotsf"]
 [ext_resource type="Texture2D" uid="uid://cqob2i5h2ioeo" path="res://assets/BEEF.png" id="9_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://ecustpmd7jm2" path="res://assets/FRIES.png" id="10_215e1"]
+[ext_resource type="Script" uid="uid://cp1do5xq8t0rs" path="res://scripts/mystermy_meat.gd" id="10_e8heu"]
+[ext_resource type="Script" uid="uid://5jrjf17txtwv" path="res://scripts/cooking_meat.gd" id="12_rvswv"]
+[ext_resource type="Script" uid="uid://o1pyhd05dras" path="res://scripts/use_real_meat.gd" id="14_boyg6"]
+[ext_resource type="Script" uid="uid://btp8og3unhsfg" path="res://scripts/serv_w__fried.gd" id="16_e36ub"]
 
 [sub_resource type="Animation" id="Animation_feb5d"]
 resource_name = "PRESSED"
@@ -67,6 +72,96 @@ _data = {
 &"unhover": SubResource("Animation_7jktm")
 }
 
+[sub_resource type="Animation" id="Animation_80cx4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(787, 111)]
+}
+
+[sub_resource type="Animation" id="Animation_hb5m1"]
+resource_name = "hover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(787.00006, 113.99999), Vector2(780, 108)]
+}
+
+[sub_resource type="Animation" id="Animation_x5p1p"]
+resource_name = "unhober"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(780, 108), Vector2(787.00006, 113.99999)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhcbd"]
+_data = {
+&"RESET": SubResource("Animation_80cx4"),
+&"hover": SubResource("Animation_hb5m1"),
+&"unhober": SubResource("Animation_x5p1p")
+}
+
 [node name="game" type="Node2D" unique_id=1154392844]
 scale = Vector2(10, 10)
 script = ExtResource("1_feb5d")
@@ -121,17 +216,47 @@ text = "shop!"
 horizontal_alignment = 1
 
 [node name="buttered buns" type="TextureButton" parent="CanvasLayer" unique_id=185973266]
-offset_left = 787.00006
-offset_top = 113.99999
+offset_left = 787.0
+offset_top = 111.0
 offset_right = 819.00006
-offset_bottom = 146.0
+offset_bottom = 143.00009
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("6_hve3p")
+script = ExtResource("7_80cx4")
 
 [node name="FontArea" type="Sprite2D" parent="CanvasLayer/buttered buns" unique_id=1540133920]
-position = Vector2(115.77011, 16.148993)
+position = Vector2(115.77005, 16.148993)
 scale = Vector2(1.0345775, 1.0093118)
 texture = ExtResource("7_iotsf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/buttered buns/FontArea" unique_id=1090879664]
+offset_left = -72.51181
+offset_top = -8.200262
+offset_right = 518.3246
+offset_bottom = 141.48428
+scale = Vector2(0.2107943, 0.2107943)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " Butter your buns! (+1$)"
+
+[node name="50" type="RichTextLabel" parent="CanvasLayer/buttered buns/FontArea" unique_id=1003711433]
+offset_left = -146.81396
+offset_top = -12.78833
+offset_right = -49.572754
+offset_bottom = 57.932556
+scale = Vector2(0.31430402, 0.31430402)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " 50$"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/buttered buns" unique_id=1766923545]
+libraries/ = SubResource("AnimationLibrary_qhcbd")
 
 [node name="mystermy meat" type="TextureButton" parent="CanvasLayer" unique_id=449076669]
 offset_left = 787.00006
@@ -140,6 +265,38 @@ offset_right = 819.00006
 offset_bottom = 226.0
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("7_mfdv2")
+script = ExtResource("10_e8heu")
+
+[node name="FontArea2" type="Sprite2D" parent="CanvasLayer/mystermy meat" unique_id=366246273]
+position = Vector2(115.77011, 16.148994)
+scale = Vector2(1.0345775, 1.0093118)
+texture = ExtResource("7_iotsf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/mystermy meat/FontArea2" unique_id=1022700077]
+offset_left = -74.74982
+offset_top = -14.164773
+offset_right = 639.17755
+offset_bottom = 129.34865
+scale = Vector2(0.211, 0.211)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " Better mystery meat!
+ (+2$)"
+
+[node name="150" type="RichTextLabel" parent="CanvasLayer/mystermy meat" unique_id=912043238]
+layout_mode = 0
+offset_left = -40.7511
+offset_top = 6.4831257
+offset_right = 103.266846
+offset_bottom = 102.34076
+scale = Vector2(0.31430402, 0.31430402)
+theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " 150$"
 
 [node name="cooking meat" type="TextureButton" parent="CanvasLayer" unique_id=1236775112]
 offset_left = 787.00006
@@ -148,6 +305,38 @@ offset_right = 819.00006
 offset_bottom = 305.0
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("8_iotsf")
+script = ExtResource("12_rvswv")
+
+[node name="FontArea3" type="Sprite2D" parent="CanvasLayer/cooking meat" unique_id=271539048]
+position = Vector2(115.77011, 16.148987)
+scale = Vector2(1.0345775, 1.0093118)
+texture = ExtResource("7_iotsf")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/cooking meat/FontArea3" unique_id=592268152]
+offset_left = -74.74988
+offset_top = -15.082397
+offset_right = 639.1775
+offset_bottom = 128.43103
+scale = Vector2(0.211, 0.211)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " Actually cook the meat.?
+(x2$)"
+
+[node name="400" type="RichTextLabel" parent="CanvasLayer/cooking meat" unique_id=598038401]
+layout_mode = 0
+offset_left = -43.529587
+offset_top = 4.1677265
+offset_right = 100.48836
+offset_bottom = 100.02536
+scale = Vector2(0.31430402, 0.31430402)
+theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " 400$"
 
 [node name="use real meat" type="TextureButton" parent="CanvasLayer" unique_id=1514243115]
 offset_left = 787.00006
@@ -156,16 +345,81 @@ offset_right = 819.00006
 offset_bottom = 385.0
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("9_lc2xo")
+script = ExtResource("14_boyg6")
+
+[node name="FontArea4" type="Sprite2D" parent="CanvasLayer/use real meat" unique_id=635335720]
+position = Vector2(115.77011, 16.149017)
+scale = Vector2(1.0345775, 1.0093118)
+texture = ExtResource("7_iotsf")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/use real meat/FontArea4" unique_id=1811349502]
+offset_left = -70.72139
+offset_top = -14.6236105
+offset_right = 643.206
+offset_bottom = 128.88982
+scale = Vector2(0.211, 0.211)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " Use real meat dude...
+(+20%)"
+
+[node name="900" type="RichTextLabel" parent="CanvasLayer/use real meat" unique_id=475456352]
+layout_mode = 0
+offset_left = -46.30808
+offset_top = 6.0200424
+offset_right = 97.70987
+offset_bottom = 101.87768
+scale = Vector2(0.31430402, 0.31430402)
+theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " 900$"
 
 [node name="serv w_ fried" type="TextureButton" parent="CanvasLayer" unique_id=1318541615]
 offset_left = 787.00006
-offset_top = 433.0
+offset_top = 431.99997
 offset_right = 819.00006
-offset_bottom = 465.0
+offset_bottom = 463.99997
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("10_215e1")
+script = ExtResource("16_e36ub")
+
+[node name="FontArea5" type="Sprite2D" parent="CanvasLayer/serv w_ fried" unique_id=1190525429]
+position = Vector2(115.77011, 15.685928)
+scale = Vector2(1.0345775, 1.0093118)
+texture = ExtResource("7_iotsf")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/serv w_ fried/FontArea5" unique_id=606310354]
+offset_left = -71.6166
+offset_top = -7.7414546
+offset_right = 642.3108
+offset_bottom = 135.77197
+scale = Vector2(0.211, 0.211)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = "serve with fries (+10$)"
+
+[node name="2000" type="RichTextLabel" parent="CanvasLayer/serv w_ fried" unique_id=507031462]
+layout_mode = 0
+offset_left = -56.958916
+offset_top = 7.409293
+offset_right = 121.3166
+offset_bottom = 103.26693
+scale = Vector2(0.31430402, 0.31430402)
+theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " 2,000$"
 
 [connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_exited"]

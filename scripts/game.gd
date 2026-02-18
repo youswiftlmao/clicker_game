@@ -10,13 +10,13 @@ var base_scale: Vector2
 var base_position: Vector2
 
 func _ready():
+
 	base_position = moneycount.position
 	base_scale = moneycount.scale
 
 func _on_texture_button_pressed() -> void:
 	money += moneyperclick
 	pop_label()
-	
 	
 func _process(delta: float) -> void:
 	moneycount.text = "$" + str(money)
