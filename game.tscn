@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://5jrjf17txtwv" path="res://scripts/cooking_meat.gd" id="12_rvswv"]
 [ext_resource type="Script" uid="uid://o1pyhd05dras" path="res://scripts/use_real_meat.gd" id="14_boyg6"]
 [ext_resource type="Script" uid="uid://btp8og3unhsfg" path="res://scripts/serv_w__fried.gd" id="16_e36ub"]
+[ext_resource type="Texture2D" uid="uid://clb5c0sjexpoq" path="res://assets/DONE.png" id="17_e8heu"]
 
 [sub_resource type="Animation" id="Animation_feb5d"]
 resource_name = "PRESSED"
@@ -31,6 +32,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_aa0lp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_fc0e3"]
@@ -68,6 +84,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jktm"]
 _data = {
 &"PRESSED": SubResource("Animation_feb5d"),
+&"RESET": SubResource("Animation_aa0lp"),
 &"hover": SubResource("Animation_fc0e3"),
 &"unhover": SubResource("Animation_7jktm")
 }
@@ -96,7 +113,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(787, 111)]
+"values": [Vector2(787, 114)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea/50:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hb5m1"]
@@ -126,6 +155,46 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(787.00006, 113.99999), Vector2(780, 108)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea/50:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xfvwf"]
+resource_name = "pessed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.1594524, 2.1594524), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(780, 108), Vector2(787.00006, 113.99999), Vector2(780, 108)]
+}
 
 [sub_resource type="Animation" id="Animation_x5p1p"]
 resource_name = "unhober"
@@ -154,12 +223,603 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(780, 108), Vector2(787.00006, 113.99999)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea/50:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhcbd"]
 _data = {
 &"RESET": SubResource("Animation_80cx4"),
 &"hover": SubResource("Animation_hb5m1"),
+&"pessed": SubResource("Animation_xfvwf"),
 &"unhober": SubResource("Animation_x5p1p")
+}
+
+[sub_resource type="Animation" id="Animation_e8heu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FontArea2/150:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(787, 194)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524)]
+}
+
+[sub_resource type="Animation" id="Animation_rvswv"]
+resource_name = "hover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(787, 194), Vector2(784, 188)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea2/150:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_boyg6"]
+resource_name = "unhober"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(784, 188), Vector2(787, 194)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea2/150:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e36ub"]
+_data = {
+&"RESET": SubResource("Animation_e8heu"),
+&"hover": SubResource("Animation_rvswv"),
+&"unhober": SubResource("Animation_boyg6")
+}
+
+[sub_resource type="Animation" id="Animation_e36ub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FontArea3/400:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(787.00006, 273)]
+}
+
+[sub_resource type="Animation" id="Animation_qhcbd"]
+resource_name = "hover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(787.00006, 273), Vector2(780, 270)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea3/400:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1jbl"]
+resource_name = "unhover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(780, 270), Vector2(787.00006, 273)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea3/400:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vaj68"]
+_data = {
+&"RESET": SubResource("Animation_e36ub"),
+&"hover": SubResource("Animation_qhcbd"),
+&"unhover": SubResource("Animation_f1jbl")
+}
+
+[sub_resource type="Animation" id="Animation_i2p71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(787.00006, 353)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea4/900:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vaj68"]
+resource_name = "hover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(787.00006, 353), Vector2(780, 347)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea4/900:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xa8c5"]
+resource_name = "unhover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(780, 347), Vector2(787.00006, 353)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea4/900:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2p71"]
+_data = {
+&"RESET": SubResource("Animation_i2p71"),
+&"hover": SubResource("Animation_vaj68"),
+&"unhover": SubResource("Animation_xa8c5")
+}
+
+[sub_resource type="Animation" id="Animation_5b14r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FontArea5/2000:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(787, 432)]
+}
+
+[sub_resource type="Animation" id="Animation_bnpwn"]
+resource_name = "hober"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.1594524, 2.1594524), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(787.00006, 431.99997), Vector2(780, 427)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea5/2000:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_36jdj"]
+resource_name = "unhover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(2.1594524, 2.1594524)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(780, 427), Vector2(787.00006, 431.99997)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FontArea5/2000:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfvwf"]
+_data = {
+&"RESET": SubResource("Animation_5b14r"),
+&"hober": SubResource("Animation_bnpwn"),
+&"unhover": SubResource("Animation_36jdj")
+}
+
+[sub_resource type="Animation" id="Animation_dhpj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.85882354, 0, 0.07058824, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7knny"]
+resource_name = "fade"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.85882354, 0, 0.07058824, 0), Color(0.85882354, 0, 0.07058824, 1), Color(0.85882354, 0, 0.07058824, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_082n1"]
+_data = {
+&"RESET": SubResource("Animation_dhpj7"),
+&"fade": SubResource("Animation_7knny")
+}
+
+[sub_resource type="Animation" id="Animation_082n1"]
+resource_name = "DONE"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xex6t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aa0lp"]
+_data = {
+&"DONE": SubResource("Animation_082n1"),
+&"RESET": SubResource("Animation_xex6t")
 }
 
 [node name="game" type="Node2D" unique_id=1154392844]
@@ -184,15 +844,30 @@ script = ExtResource("3_fc0e3")
 libraries/ = SubResource("AnimationLibrary_7jktm")
 
 [node name="MONEYCOUNT" type="RichTextLabel" parent="." unique_id=1217261146]
-offset_left = -0.19999981
-offset_top = 4.2
-offset_right = 597.6
-offset_bottom = 183.2
+offset_left = -275.8
+offset_top = -77.4
+offset_right = 322.0
+offset_bottom = 101.6
 scale = Vector2(0.07261277, 0.07261277)
+pivot_offset = Vector2(298, 86)
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 160
 text = "$ "
 horizontal_alignment = 1
+
+[node name="MONEY_PER_SEC" type="RichTextLabel" parent="." unique_id=800958993]
+offset_left = 8.400001
+offset_top = 12.8
+offset_right = 606.2
+offset_bottom = 191.8
+scale = Vector2(0.041873697, 0.041873697)
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 160
+text = "moneyy"
+horizontal_alignment = 1
+
+[node name="MoneyTimer" type="Timer" parent="MONEY_PER_SEC" unique_id=1707073481]
+autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1137973250]
 
@@ -217,9 +892,9 @@ horizontal_alignment = 1
 
 [node name="buttered buns" type="TextureButton" parent="CanvasLayer" unique_id=185973266]
 offset_left = 787.0
-offset_top = 111.0
+offset_top = 114.0
 offset_right = 819.00006
-offset_bottom = 143.00009
+offset_bottom = 146.00015
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("6_hve3p")
 script = ExtResource("7_80cx4")
@@ -242,6 +917,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Butter your buns! (+1$)"
 
 [node name="50" type="RichTextLabel" parent="CanvasLayer/buttered buns/FontArea" unique_id=1003711433]
+modulate = Color(1, 1, 1, 0)
 offset_left = -146.81396
 offset_top = -12.78833
 offset_right = -49.572754
@@ -259,9 +935,9 @@ text = " 50$"
 libraries/ = SubResource("AnimationLibrary_qhcbd")
 
 [node name="mystermy meat" type="TextureButton" parent="CanvasLayer" unique_id=449076669]
-offset_left = 787.00006
+offset_left = 787.0
 offset_top = 194.0
-offset_right = 819.00006
+offset_right = 819.0
 offset_bottom = 226.0
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("7_mfdv2")
@@ -284,12 +960,12 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Better mystery meat!
  (+2$)"
 
-[node name="150" type="RichTextLabel" parent="CanvasLayer/mystermy meat" unique_id=912043238]
-layout_mode = 0
-offset_left = -40.7511
-offset_top = 6.4831257
-offset_right = 103.266846
-offset_bottom = 102.34076
+[node name="150" type="RichTextLabel" parent="CanvasLayer/mystermy meat/FontArea2" unique_id=912043238]
+modulate = Color(1, 1, 1, 0)
+offset_left = -151.29001
+offset_top = -9.576691
+offset_right = -7.272064
+offset_bottom = 86.280945
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -297,6 +973,9 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 150$"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/mystermy meat" unique_id=646479395]
+libraries/ = SubResource("AnimationLibrary_e36ub")
 
 [node name="cooking meat" type="TextureButton" parent="CanvasLayer" unique_id=1236775112]
 offset_left = 787.00006
@@ -324,12 +1003,12 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Actually cook the meat.?
 (x2$)"
 
-[node name="400" type="RichTextLabel" parent="CanvasLayer/cooking meat" unique_id=598038401]
-layout_mode = 0
-offset_left = -43.529587
-offset_top = 4.1677265
-offset_right = 100.48836
-offset_bottom = 100.02536
+[node name="400" type="RichTextLabel" parent="CanvasLayer/cooking meat/FontArea3" unique_id=598038401]
+modulate = Color(1, 1, 1, 0)
+offset_left = -153.97562
+offset_top = -11.870743
+offset_right = -9.957672
+offset_bottom = 83.98689
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -337,6 +1016,9 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 400$"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/cooking meat" unique_id=2143284991]
+libraries/ = SubResource("AnimationLibrary_vaj68")
 
 [node name="use real meat" type="TextureButton" parent="CanvasLayer" unique_id=1514243115]
 offset_left = 787.00006
@@ -364,12 +1046,12 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Use real meat dude...
 (+20%)"
 
-[node name="900" type="RichTextLabel" parent="CanvasLayer/use real meat" unique_id=475456352]
-layout_mode = 0
-offset_left = -46.30808
-offset_top = 6.0200424
-offset_right = 97.70987
-offset_bottom = 101.87768
+[node name="900" type="RichTextLabel" parent="CanvasLayer/use real meat/FontArea4" unique_id=475456352]
+modulate = Color(1, 1, 1, 0)
+offset_left = -156.66122
+offset_top = -10.035522
+offset_right = -12.64328
+offset_bottom = 85.82211
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -378,11 +1060,14 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 900$"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/use real meat" unique_id=752385962]
+libraries/ = SubResource("AnimationLibrary_i2p71")
+
 [node name="serv w_ fried" type="TextureButton" parent="CanvasLayer" unique_id=1318541615]
-offset_left = 787.00006
-offset_top = 431.99997
-offset_right = 819.00006
-offset_bottom = 463.99997
+offset_left = 787.0
+offset_top = 432.0
+offset_right = 819.0
+offset_bottom = 464.0
 scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("10_215e1")
 script = ExtResource("16_e36ub")
@@ -403,12 +1088,12 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = "serve with fries (+10$)"
 
-[node name="2000" type="RichTextLabel" parent="CanvasLayer/serv w_ fried" unique_id=507031462]
-layout_mode = 0
-offset_left = -56.958916
-offset_top = 7.409293
-offset_right = 121.3166
-offset_bottom = 103.26693
+[node name="2000" type="RichTextLabel" parent="CanvasLayer/serv w_ fried/FontArea5" unique_id=507031462]
+modulate = Color(1, 1, 1, 0)
+offset_left = -166.95612
+offset_top = -8.200272
+offset_right = 11.319397
+offset_bottom = 87.657364
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -417,9 +1102,142 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 2,000$"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/serv w_ fried" unique_id=1151586358]
+libraries/ = SubResource("AnimationLibrary_xfvwf")
+
+[node name="BUY1" type="RichTextLabel" parent="CanvasLayer" unique_id=28239840]
+offset_left = 1099.0
+offset_top = 91.0
+offset_right = 1127.0
+offset_bottom = 165.0
+scale = Vector2(1.6279612, 1.6279612)
+theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY1" unique_id=2008773240]
+libraries/ = SubResource("AnimationLibrary_082n1")
+
+[node name="BUY2" type="RichTextLabel" parent="CanvasLayer" unique_id=1927553566]
+offset_left = 1098.0
+offset_top = 172.0
+offset_right = 1126.0
+offset_bottom = 246.0
+scale = Vector2(1.6279612, 1.6279612)
+theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY2" unique_id=124811218]
+libraries/ = SubResource("AnimationLibrary_082n1")
+
+[node name="BUY3" type="RichTextLabel" parent="CanvasLayer" unique_id=1086239327]
+offset_left = 1098.0
+offset_top = 252.0
+offset_right = 1126.0
+offset_bottom = 326.0
+scale = Vector2(1.6279612, 1.6279612)
+theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY3" unique_id=22269238]
+libraries/ = SubResource("AnimationLibrary_082n1")
+
+[node name="BUY4" type="RichTextLabel" parent="CanvasLayer" unique_id=852053640]
+offset_left = 1103.0
+offset_top = 328.0
+offset_right = 1131.0
+offset_bottom = 402.0
+scale = Vector2(1.6279612, 1.6279612)
+theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY4" unique_id=2046915504]
+libraries/ = SubResource("AnimationLibrary_082n1")
+
+[node name="BUY5" type="RichTextLabel" parent="CanvasLayer" unique_id=858172003]
+offset_left = 1102.0
+offset_top = 405.0
+offset_right = 1130.0
+offset_bottom = 479.0
+scale = Vector2(1.6279612, 1.6279612)
+theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 64
+text = " !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY5" unique_id=584353892]
+libraries/ = SubResource("AnimationLibrary_082n1")
+
+[node name="Done1" type="Sprite2D" parent="CanvasLayer" unique_id=101237383]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(822.00006, 149)
+scale = Vector2(2.0762892, 2.0762892)
+texture = ExtResource("17_e8heu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done1" unique_id=1755626463]
+libraries/ = SubResource("AnimationLibrary_aa0lp")
+
+[node name="Done2" type="Sprite2D" parent="CanvasLayer" unique_id=1040797612]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(822.00006, 228)
+scale = Vector2(2.0762892, 2.0762892)
+texture = ExtResource("17_e8heu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done2" unique_id=1715335599]
+libraries/ = SubResource("AnimationLibrary_aa0lp")
+
+[node name="Done3" type="Sprite2D" parent="CanvasLayer" unique_id=1522655422]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(822.00006, 309.00003)
+scale = Vector2(2.0762892, 2.0762892)
+texture = ExtResource("17_e8heu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done3" unique_id=1817478170]
+libraries/ = SubResource("AnimationLibrary_aa0lp")
+
+[node name="Done4" type="Sprite2D" parent="CanvasLayer" unique_id=1407976162]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(822.00006, 390)
+scale = Vector2(2.0762892, 2.0762892)
+texture = ExtResource("17_e8heu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done4" unique_id=264053079]
+libraries/ = SubResource("AnimationLibrary_aa0lp")
+
+[node name="Done5" type="Sprite2D" parent="CanvasLayer" unique_id=652207527]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(822.00006, 465.99997)
+scale = Vector2(2.0762892, 2.0762892)
+texture = ExtResource("17_e8heu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done5" unique_id=1224397410]
+libraries/ = SubResource("AnimationLibrary_aa0lp")
+
 [connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="timeout" from="MONEY_PER_SEC/MoneyTimer" to="." method="_on_money_timer_timeout"]
 [connection signal="mouse_entered" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/buttered buns" to="." method="_on_buttered_buns_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/mystermy meat" to="CanvasLayer/mystermy meat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/mystermy meat" to="CanvasLayer/mystermy meat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/cooking meat" to="CanvasLayer/cooking meat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/cooking meat" to="CanvasLayer/cooking meat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/use real meat" to="CanvasLayer/use real meat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/use real meat" to="CanvasLayer/use real meat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/serv w_ fried" to="CanvasLayer/serv w_ fried" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/serv w_ fried" to="CanvasLayer/serv w_ fried" method="_on_mouse_exited"]

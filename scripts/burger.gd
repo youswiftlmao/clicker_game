@@ -3,7 +3,6 @@ extends TextureButton
 
 
 
-
 func _on_pressed() -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("PRESSED")
@@ -11,6 +10,7 @@ func _on_pressed() -> void:
 
 func _on_mouse_entered() -> void:
 	$AnimationPlayer.stop()
+
 	$AnimationPlayer.play("hover")
 
 
