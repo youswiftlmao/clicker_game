@@ -4,7 +4,7 @@ var money: int = 0
 var moneyperclick: int = 1
 var moneypersec: int = 0
 var displayed_money: int = 0
-var animation_speed := 10.0  
+
 
 var bought1 = false
 var bought2 = false
@@ -12,7 +12,7 @@ var bought3 = false
 var bought4 = false
 var bought5 = false
 @onready var moneycount: RichTextLabel = $MONEYCOUNT
-@onready var button := $TextureButton
+@onready var button := $MAINCLICKER
 @onready var money_per_sec_label: RichTextLabel = $MONEY_PER_SEC
 
 var base_scale: Vector2
@@ -30,7 +30,14 @@ func _on_texture_button_pressed() -> void:
 
 
 func _process(delta: float) -> void:
-	displayed_money = lerp(displayed_money, money, delta * animation_speed)
+	var speed := 2000  # how fast the number catches up per second
+
+	if displayed_money < money:
+		displayed_money += speed * delta
+		displayed_money = min(displayed_money, money)
+	elif displayed_money > money:
+		displayed_money -= speed * delta
+		displayed_money = max(displayed_money, money)
 
 	# Snap when close enough
 	if abs(displayed_money - money) < 1:
@@ -138,3 +145,8 @@ func MPSUPD():
 	money += moneypersec
 	if moneypersec > 0:
 		pop_label()
+
+
+func _on_upgrdchez_pressed() -> void:
+	if money >= 5000:
+		money -= 5000

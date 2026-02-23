@@ -18,6 +18,70 @@
 [ext_resource type="Script" uid="uid://btp8og3unhsfg" path="res://scripts/serv_w__fried.gd" id="16_e36ub"]
 [ext_resource type="Texture2D" uid="uid://clb5c0sjexpoq" path="res://assets/DONE.png" id="17_e8heu"]
 [ext_resource type="Texture2D" uid="uid://c0ijmtfsskwmj" path="res://assets/chese.png" id="18_rvswv"]
+[ext_resource type="Texture2D" uid="uid://ueps2xkuslq6" path="res://assets/AAA.png" id="19_boyg6"]
+[ext_resource type="Texture2D" uid="uid://b17me87rj0fnk" path="res://assets/spinnky thing.png" id="20_e36ub"]
+[ext_resource type="Texture2D" uid="uid://j48jwrs4mqbb" path="res://assets/placeholder.png" id="21_qhcbd"]
+[ext_resource type="Texture2D" uid="uid://wmam4javuc0l" path="res://assets/YEAH OUTLINE.png" id="22_f1jbl"]
+[ext_resource type="Texture2D" uid="uid://lijo3rv0nygu" path="res://assets/LOADING THING.png" id="23_vaj68"]
+[ext_resource type="Texture2D" uid="uid://6cqq7b5bh7ic" path="res://assets/wopper.png" id="24_i2p71"]
+[ext_resource type="Texture2D" uid="uid://curqj2oymaihq" path="res://assets/Sprite-0002.png" id="25_xa8c5"]
+[ext_resource type="Script" uid="uid://dgwo2kh8po1lu" path="res://scripts/burgers_2.gd" id="26_5b14r"]
+[ext_resource type="Script" uid="uid://bsvr2et88x5oy" path="res://scripts/burgers_3.gd" id="27_xa8c5"]
+
+[sub_resource type="Gradient" id="Gradient_rvswv"]
+offsets = PackedFloat32Array(0.8137255, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_boyg6"]
+gradient = SubResource("Gradient_rvswv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e36ub"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(40, 0, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angular_velocity_min = -4.000016
+angular_velocity_max = 14.999984
+gravity = Vector3(0, 50, 0)
+color_ramp = SubResource("GradientTexture1D_boyg6")
+
+[sub_resource type="Animation" id="Animation_edr7y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kq12w"]
+resource_name = "rotato"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.7121679962064378]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t46w6"]
+_data = {
+&"RESET": SubResource("Animation_edr7y"),
+&"rotato": SubResource("Animation_kq12w")
+}
 
 [sub_resource type="Animation" id="Animation_feb5d"]
 resource_name = "PRESSED"
@@ -928,17 +992,248 @@ _data = {
 &"new_animation": SubResource("Animation_eu6ph")
 }
 
+[sub_resource type="Animation" id="Animation_m28ev"]
+resource_name = "new_animation"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.07, 8, 8.233334, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-17.694, 4.074), Vector2(-12.406, 4.074), Vector2(-10.258, 4.074), Vector2(-10.258177, 4.0736217), Vector2(2.850257, 4.0736217)]
+}
+
+[sub_resource type="Animation" id="Animation_t46w6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [194]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17.693636, 3.7055194)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lwlx3"]
+_data = {
+&"LOADER": SubResource("Animation_m28ev"),
+&"RESET": SubResource("Animation_t46w6")
+}
+
+[sub_resource type="Animation" id="Animation_lwlx3"]
+resource_name = "DOTDOTDOT"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.6333333, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["renovating", "renovating.", "renovating..", "renovating..."]
+}
+
+[sub_resource type="Animation" id="Animation_0de7l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["renovating."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87ddb"]
+_data = {
+&"DOTDOTDOT": SubResource("Animation_lwlx3"),
+&"RESET": SubResource("Animation_0de7l")
+}
+
+[sub_resource type="Animation" id="Animation_mljfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ham:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wopper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite0002:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qpefm"]
+resource_name = "ham"
+length = 0.75
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ham:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wopper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite0002:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tb2lt"]
+_data = {
+&"RESET": SubResource("Animation_mljfx"),
+&"ham": SubResource("Animation_qpefm")
+}
+
 [node name="game" type="Node2D" unique_id=1154392844]
 scale = Vector2(10, 10)
 script = ExtResource("1_feb5d")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=935712582]
-position = Vector2(57.599995, 32.399994)
+position = Vector2(57.59999, -33.600002)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1460265113]
-offset_left = 7.2
+[node name="BURGERDRIPPERS" type="GPUParticles2D" parent="." unique_id=1857889002]
+z_index = -68
+position = Vector2(39.3, -2.3)
+scale = Vector2(0.99999994, 0.99999994)
+amount = 14
+texture = ExtResource("2_fc0e3")
+lifetime = 5.0
+preprocess = 2.15
+speed_scale = 5.83
+process_material = SubResource("ParticleProcessMaterial_e36ub")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1298803292]
+z_index = -109
+position = Vector2(38.77615, 32.399994)
+scale = Vector2(0.48845187, 0.40375)
+texture = ExtResource("19_boyg6")
+
+[node name="wheel" type="Node2D" parent="." unique_id=441458005]
+position = Vector2(37.200027, 37.499996)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="wheel" type="Sprite2D" parent="wheel" unique_id=2106199448]
+z_index = -12
+position = Vector2(-11.599991, 8.999992)
+rotation = 0.09543391
+scale = Vector2(1.8381582, 1.8381582)
+texture = ExtResource("20_e36ub")
+region_enabled = true
+region_rect = Rect2(3.9398365, 19.908897, 12.670393, 12.914051)
+
+[node name="SpinnkyThing2" type="Sprite2D" parent="wheel/wheel" unique_id=1816110643]
+position = Vector2(11.725295, -1.1223965)
+rotation = -1.4686165
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("20_e36ub")
+region_enabled = true
+region_rect = Rect2(3.9398365, 19.908897, 12.670393, 12.914051)
+
+[node name="SpinnkyThing4" type="Sprite2D" parent="wheel/wheel" unique_id=582682947]
+position = Vector2(-0.47444558, -12.510429)
+rotation = 1.6729763
+scale = Vector2(0.97621214, 0.97621214)
+texture = ExtResource("20_e36ub")
+region_enabled = true
+region_rect = Rect2(3.9398365, 19.908897, 12.670393, 12.914051)
+
+[node name="SpinnkyThing3" type="Sprite2D" parent="wheel/wheel" unique_id=1647647184]
+position = Vector2(11.300732, -13.111707)
+rotation = -3.0470378
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("20_e36ub")
+region_enabled = true
+region_rect = Rect2(3.9398365, 19.908897, 12.670393, 12.914051)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wheel/wheel" unique_id=1502938833]
+libraries/ = SubResource("AnimationLibrary_t46w6")
+autoplay = &"rotato"
+
+[node name="MAINCLICKER" type="TextureButton" parent="." unique_id=1460265113]
+offset_left = 23.038597
 offset_top = 24.900002
-offset_right = 37.3
+offset_right = 53.138596
 offset_bottom = 47.000004
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("2_fc0e3")
@@ -946,13 +1241,13 @@ ignore_texture_size = true
 stretch_mode = 1
 script = ExtResource("3_fc0e3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton" unique_id=1111794381]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MAINCLICKER" unique_id=1111794381]
 libraries/ = SubResource("AnimationLibrary_7jktm")
 
 [node name="MONEYCOUNT" type="RichTextLabel" parent="." unique_id=1217261146]
-offset_left = -275.8
+offset_left = -259.9614
 offset_top = -77.4
-offset_right = 322.0
+offset_right = 337.8386
 offset_bottom = 101.6
 scale = Vector2(0.07261277, 0.07261277)
 pivot_offset = Vector2(298, 86)
@@ -962,9 +1257,9 @@ text = "$ "
 horizontal_alignment = 1
 
 [node name="MONEY_PER_SEC" type="RichTextLabel" parent="." unique_id=800958993]
-offset_left = 8.400001
+offset_left = 24.2386
 offset_top = 12.8
-offset_right = 606.2
+offset_right = 622.0386
 offset_bottom = 191.8
 scale = Vector2(0.041873697, 0.041873697)
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
@@ -976,6 +1271,7 @@ horizontal_alignment = 1
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1137973250]
+visible = false
 
 [node name="ShopArea" type="Sprite2D" parent="CanvasLayer" unique_id=790074387]
 position = Vector2(1010.49994, 323.5)
@@ -1331,7 +1627,7 @@ texture = ExtResource("17_e8heu")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done5" unique_id=1224397410]
 libraries/ = SubResource("AnimationLibrary_aa0lp")
 
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer" unique_id=1199896212]
+[node name="UPGRDCHEZ" type="TextureButton" parent="CanvasLayer" unique_id=1199896212]
 offset_left = 1004.0
 offset_top = 551.0
 offset_right = 1036.0
@@ -1340,10 +1636,10 @@ scale = Vector2(3.8441868, 3.8441868)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("18_rvswv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureButton2" unique_id=534259930]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UPGRDCHEZ" unique_id=534259930]
 libraries/ = SubResource("AnimationLibrary_edr7y")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureButton2" unique_id=1413445538]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UPGRDCHEZ" unique_id=1413445538]
 layout_mode = 0
 offset_left = -36.28675
 offset_top = -0.12824857
@@ -1355,10 +1651,130 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 5,000$"
 
-[connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[node name="loadingscreen" type="Sprite2D" parent="." unique_id=1518520312]
+z_index = -201
+position = Vector2(57.4, -34.4)
+scale = Vector2(7.2624993, 4.075)
+texture = ExtResource("21_qhcbd")
+
+[node name="YeahOutline" type="Sprite2D" parent="loadingscreen" unique_id=1865880350]
+z_index = 316
+position = Vector2(0.79862213, 4.049079)
+scale = Vector2(0.18089503, 0.24539876)
+texture = ExtResource("22_f1jbl")
+
+[node name="LOADING" type="Sprite2D" parent="loadingscreen" unique_id=924639977]
+z_index = 194
+position = Vector2(-17.693636, 3.7055194)
+scale = Vector2(0.13769364, 0.24539876)
+texture = ExtResource("23_vaj68")
+
+[node name="LOADER" type="AnimationPlayer" parent="loadingscreen/LOADING" unique_id=1899209142]
+libraries/ = SubResource("AnimationLibrary_lwlx3")
+
+[node name="LoadingThing2" type="Sprite2D" parent="loadingscreen" unique_id=1046411193]
+modulate = Color(0.7058824, 0.7647059, 0.4627451, 0.37254903)
+z_index = 216
+position = Vector2(-0.9776244, 4.049077)
+scale = Vector2(0.13769364, 0.24539876)
+texture = ExtResource("23_vaj68")
+
+[node name="renovating" type="RichTextLabel" parent="loadingscreen" unique_id=171640564]
+offset_left = -4.130809
+offset_top = -4.122699
+offset_right = 3296.8857
+offset_bottom = 1409.0616
+scale = Vector2(0.0045243786, 0.0045243786)
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 454
+text = "renovating."
+
+[node name="dotdotdot" type="AnimationPlayer" parent="loadingscreen/renovating" unique_id=28055453]
+libraries/ = SubResource("AnimationLibrary_87ddb")
+autoplay = &"DOTDOTDOT"
+
+[node name="burgers" type="Node2D" parent="loadingscreen" unique_id=433062562]
+z_index = 381
+position = Vector2(3.456111, 1.2269955)
+scale = Vector2(0.3800894, 0.3800894)
+
+[node name="Ham" type="Sprite2D" parent="loadingscreen/burgers" unique_id=142584353]
+position = Vector2(-17.363169, 0.93251514)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("2_fc0e3")
+
+[node name="Wopper" type="Sprite2D" parent="loadingscreen/burgers" unique_id=1784063128]
+visible = false
+position = Vector2(-17.363182, -1.5214729)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("24_i2p71")
+
+[node name="Sprite0002" type="Sprite2D" parent="loadingscreen/burgers" unique_id=1439079143]
+visible = false
+position = Vector2(-17.50087, -0.90797615)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("25_xa8c5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="loadingscreen/burgers" unique_id=760770286]
+libraries/ = SubResource("AnimationLibrary_tb2lt")
+autoplay = &"ham"
+
+[node name="burgers2" type="Node2D" parent="loadingscreen" unique_id=1133496704]
+z_index = 381
+position = Vector2(6.4578323, 1.226994)
+scale = Vector2(0.37996525, 0.37996525)
+script = ExtResource("26_5b14r")
+
+[node name="Ham" type="Sprite2D" parent="loadingscreen/burgers2" unique_id=332497274]
+position = Vector2(-17.363169, 0.93251514)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("2_fc0e3")
+
+[node name="Wopper" type="Sprite2D" parent="loadingscreen/burgers2" unique_id=1363193020]
+visible = false
+position = Vector2(-17.363182, -1.5214729)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("24_i2p71")
+
+[node name="Sprite0002" type="Sprite2D" parent="loadingscreen/burgers2" unique_id=1159656544]
+visible = false
+position = Vector2(-17.50087, -0.90797615)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("25_xa8c5")
+
+[node name="goog" type="AnimationPlayer" parent="loadingscreen/burgers2" unique_id=1030658619]
+libraries/ = SubResource("AnimationLibrary_tb2lt")
+
+[node name="burgers3" type="Node2D" parent="loadingscreen" unique_id=830591962]
+z_index = 381
+position = Vector2(9.418247, 1.226994)
+scale = Vector2(0.37996525, 0.37996525)
+script = ExtResource("27_xa8c5")
+
+[node name="Ham" type="Sprite2D" parent="loadingscreen/burgers3" unique_id=1565691791]
+position = Vector2(-17.363169, 0.93251514)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("2_fc0e3")
+
+[node name="Wopper" type="Sprite2D" parent="loadingscreen/burgers3" unique_id=1840075736]
+visible = false
+position = Vector2(-17.363182, -1.5214729)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("24_i2p71")
+
+[node name="Sprite0002" type="Sprite2D" parent="loadingscreen/burgers3" unique_id=496261309]
+visible = false
+position = Vector2(-17.50087, -0.90797615)
+scale = Vector2(0.13769364, 0.24539874)
+texture = ExtResource("25_xa8c5")
+
+[node name="AAA" type="AnimationPlayer" parent="loadingscreen/burgers3" unique_id=1038050801]
+libraries/ = SubResource("AnimationLibrary_tb2lt")
+
+[connection signal="mouse_entered" from="MAINCLICKER" to="MAINCLICKER" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MAINCLICKER" to="MAINCLICKER" method="_on_mouse_exited"]
+[connection signal="pressed" from="MAINCLICKER" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="MAINCLICKER" to="MAINCLICKER" method="_on_pressed"]
 [connection signal="timeout" from="MONEY_PER_SEC/MoneyTimer" to="." method="_on_money_timer_timeout"]
 [connection signal="mouse_entered" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_exited"]
@@ -1375,3 +1791,4 @@ text = " 5,000$"
 [connection signal="mouse_entered" from="CanvasLayer/serv w_ fried" to="CanvasLayer/serv w_ fried" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/serv w_ fried" to="CanvasLayer/serv w_ fried" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/serv w_ fried" to="." method="_on_serv_w__fried_pressed"]
+[connection signal="pressed" from="CanvasLayer/UPGRDCHEZ" to="." method="_on_upgrdchez_pressed"]
