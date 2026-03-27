@@ -1,10 +1,13 @@
 extends Node2D
 
-var money: int = 0
+var money: int = 5000
 var moneyperclick: int = 1
 var moneypersec: int = 0
 var displayed_money: int = 0
-
+var ham = false
+var chez = false
+var bigmac = false
+var whopper = false
 
 var bought1 = false
 var bought2 = false
@@ -19,7 +22,8 @@ var base_scale: Vector2
 var base_position: Vector2
 
 func _ready():
-
+	ham = true
+	
 	base_position = moneycount.position
 	base_scale = moneycount.scale
 
@@ -49,23 +53,24 @@ func _process(delta: float) -> void:
 	money_per_sec_label.text = "+ " + str(moneypersec) + " /sec"
 	
 	
-	if money >= 50 and !bought1 :
+	if money >= 50 and !bought1 and ham :
 		$CanvasLayer/BUY1/AnimationPlayer.play("fade")
 	else :
 		$CanvasLayer/BUY1/AnimationPlayer.stop()
 
-	if money >= 150 and !bought2 :
+	if money >= 150 and !bought2 and ham:
 		$CanvasLayer/BUY2/AnimationPlayer.play("fade")
-	else:$CanvasLayer/BUY2/AnimationPlayer.stop()
-	if money >= 400 and !bought3:
+	else:
+		$CanvasLayer/BUY2/AnimationPlayer.stop()
+	if money >= 400 and !bought3 and ham:
 		$CanvasLayer/BUY3/AnimationPlayer.play("fade")
 	else:
 		$CanvasLayer/BUY3/AnimationPlayer.stop()
-	if money >= 900 and !bought4:
+	if money >= 900 and !bought4 and ham:
 		$CanvasLayer/BUY4/AnimationPlayer.play("fade")
 	else:
 		$CanvasLayer/BUY4/AnimationPlayer.stop()
-	if money >= 2000 and !bought5:
+	if money >= 2000 and !bought5 and ham:
 		$CanvasLayer/BUY5/AnimationPlayer.play("fade")
 	else:
 		$CanvasLayer/BUY5/AnimationPlayer.stop()
@@ -82,7 +87,7 @@ func pop_label():
 		.set_ease(Tween.EASE_IN)
 func _on_buttered_buns_pressed() -> void:
 
-	if money >= 50:
+	if money >= 50 and ham:
 		money -= 50
 		moneyperclick += 1
 		moneypersec += 1
@@ -99,7 +104,7 @@ func _on_money_timer_timeout() -> void:
 
 
 func _on_mystermy_meat_pressed() -> void:
-	if money >= 150:
+	if money >= 150 and ham:
 		money -= 150
 		moneyperclick += 2
 		moneypersec += 1
@@ -109,7 +114,7 @@ func _on_mystermy_meat_pressed() -> void:
 		bought2 = true
 
 func _on_cooking_meat_pressed() -> void:
-	if money >= 400:
+	if money >= 400 and ham:
 		money -= 400
 		moneyperclick += 4
 		moneypersec += 1
@@ -120,7 +125,7 @@ func _on_cooking_meat_pressed() -> void:
 
 
 func _on_use_real_meat_pressed() -> void:
-	if money >= 900:
+	if money >= 900 and ham:
 		money -= 900
 		moneyperclick += 2
 		moneypersec += 2
@@ -131,7 +136,7 @@ func _on_use_real_meat_pressed() -> void:
 
 
 func _on_serv_w__fried_pressed() -> void:
-		if money >= 2000:
+		if money >= 2000 and ham:
 			money -= 2000
 			moneyperclick += 10
 			
@@ -148,7 +153,7 @@ func MPSUPD():
 
 
 func _on_upgrdchez_pressed() -> void:
-	if money >= 5000:
+	if money >= 5000 and ham:
 		money -= 5000
 		$loadingscreen/AnimationPlayer.play("renovation")
 		$loadingscreen/LOADING/LOADER.play("LOADER")
@@ -158,20 +163,11 @@ func _on_upgrdchez_pressed() -> void:
 		$MAINCLICKER.texture_normal = preload("res://assets/chez.png")
 		$MAINCLICKER.custom_minimum_size = Vector2(30.1, 23.0)
 		await $loadingscreen/AnimationPlayer.animation_finished
+		$CanvasLayer/HAMGON.play("fadin")
 		money = 0 
 		moneypersec = 20
 		moneyperclick = 10
-# below here is chez burger upgrade area 
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-
-#---------------------------------chez------------------------------------
-
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
-
-#-------------------------------------------------------------------------
+		ham = false
+		chez = true
+	
+#upd nvm will add it whithing here only

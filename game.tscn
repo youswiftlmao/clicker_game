@@ -1022,10 +1022,26 @@ tracks/0/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_cfc7e"]
+resource_name = "fadin"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cfc7e"]
 _data = {
 &"RESET": SubResource("Animation_87ddb"),
-&"fadeout": SubResource("Animation_tb2lt")
+&"fadeout": SubResource("Animation_tb2lt"),
+&"fadin": SubResource("Animation_cfc7e")
 }
 
 [sub_resource type="Animation" id="Animation_m28ev"]
@@ -1353,14 +1369,14 @@ horizontal_alignment = 1
 [node name="MoneyTimer" type="Timer" parent="MONEY_PER_SEC" unique_id=1707073481]
 autostart = true
 
-[node name="starter burger" type="CanvasLayer" parent="." unique_id=1137973250]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1137973250]
 
-[node name="ShopArea" type="Sprite2D" parent="starter burger" unique_id=790074387]
+[node name="ShopArea" type="Sprite2D" parent="CanvasLayer" unique_id=790074387]
 position = Vector2(1010.49994, 323.5)
 scale = Vector2(2.9562502, 4.04375)
 texture = ExtResource("5_7jktm")
 
-[node name="shop" type="RichTextLabel" parent="starter burger" unique_id=710092178]
+[node name="shop" type="RichTextLabel" parent="CanvasLayer" unique_id=710092178]
 offset_left = 797.99994
 offset_top = 10.999977
 offset_right = 1395.8
@@ -1374,7 +1390,7 @@ theme_override_font_sizes/normal_font_size = 160
 text = "shop!"
 horizontal_alignment = 1
 
-[node name="buttered buns" type="TextureButton" parent="starter burger" unique_id=185973266]
+[node name="buttered buns" type="TextureButton" parent="CanvasLayer" unique_id=185973266]
 offset_left = 787.0
 offset_top = 114.0
 offset_right = 819.00006
@@ -1383,12 +1399,12 @@ scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("6_hve3p")
 script = ExtResource("7_80cx4")
 
-[node name="FontArea" type="Sprite2D" parent="starter burger/buttered buns" unique_id=1540133920]
+[node name="FontArea" type="Sprite2D" parent="CanvasLayer/buttered buns" unique_id=1540133920]
 position = Vector2(115.77005, 16.148993)
 scale = Vector2(1.0345775, 1.0093118)
 texture = ExtResource("7_iotsf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="starter burger/buttered buns/FontArea" unique_id=1090879664]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/buttered buns/FontArea" unique_id=1090879664]
 offset_left = -72.51181
 offset_top = -8.200262
 offset_right = 518.3246
@@ -1400,7 +1416,7 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " Butter your buns! (+1$)"
 
-[node name="50" type="RichTextLabel" parent="starter burger/buttered buns/FontArea" unique_id=1003711433]
+[node name="50" type="RichTextLabel" parent="CanvasLayer/buttered buns/FontArea" unique_id=1003711433]
 modulate = Color(1, 1, 1, 0)
 offset_left = -146.81396
 offset_top = -12.78833
@@ -1415,10 +1431,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 50$"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/buttered buns" unique_id=1766923545]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/buttered buns" unique_id=1766923545]
 libraries/ = SubResource("AnimationLibrary_qhcbd")
 
-[node name="mystermy meat" type="TextureButton" parent="starter burger" unique_id=449076669]
+[node name="mystermy meat" type="TextureButton" parent="CanvasLayer" unique_id=449076669]
 offset_left = 787.0
 offset_top = 194.0
 offset_right = 819.0
@@ -1427,12 +1443,12 @@ scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("7_mfdv2")
 script = ExtResource("10_e8heu")
 
-[node name="FontArea2" type="Sprite2D" parent="starter burger/mystermy meat" unique_id=366246273]
+[node name="FontArea2" type="Sprite2D" parent="CanvasLayer/mystermy meat" unique_id=366246273]
 position = Vector2(115.77011, 16.148994)
 scale = Vector2(1.0345775, 1.0093118)
 texture = ExtResource("7_iotsf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="starter burger/mystermy meat/FontArea2" unique_id=1022700077]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/mystermy meat/FontArea2" unique_id=1022700077]
 offset_left = -74.74982
 offset_top = -14.164773
 offset_right = 639.17755
@@ -1444,7 +1460,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Better mystery meat!
  (+2$)"
 
-[node name="150" type="RichTextLabel" parent="starter burger/mystermy meat/FontArea2" unique_id=912043238]
+[node name="150" type="RichTextLabel" parent="CanvasLayer/mystermy meat/FontArea2" unique_id=912043238]
 modulate = Color(1, 1, 1, 0)
 offset_left = -151.29001
 offset_top = -9.576691
@@ -1458,10 +1474,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 150$"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/mystermy meat" unique_id=646479395]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/mystermy meat" unique_id=646479395]
 libraries/ = SubResource("AnimationLibrary_e36ub")
 
-[node name="cooking meat" type="TextureButton" parent="starter burger" unique_id=1236775112]
+[node name="cooking meat" type="TextureButton" parent="CanvasLayer" unique_id=1236775112]
 offset_left = 787.00006
 offset_top = 273.0
 offset_right = 819.00006
@@ -1470,12 +1486,12 @@ scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("8_iotsf")
 script = ExtResource("12_rvswv")
 
-[node name="FontArea3" type="Sprite2D" parent="starter burger/cooking meat" unique_id=271539048]
+[node name="FontArea3" type="Sprite2D" parent="CanvasLayer/cooking meat" unique_id=271539048]
 position = Vector2(115.77011, 16.148987)
 scale = Vector2(1.0345775, 1.0093118)
 texture = ExtResource("7_iotsf")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="starter burger/cooking meat/FontArea3" unique_id=592268152]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/cooking meat/FontArea3" unique_id=592268152]
 offset_left = -74.74988
 offset_top = -15.082397
 offset_right = 639.1775
@@ -1487,7 +1503,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Actually cook the meat.?
 (x2$)"
 
-[node name="400" type="RichTextLabel" parent="starter burger/cooking meat/FontArea3" unique_id=598038401]
+[node name="400" type="RichTextLabel" parent="CanvasLayer/cooking meat/FontArea3" unique_id=598038401]
 modulate = Color(1, 1, 1, 0)
 offset_left = -153.97562
 offset_top = -11.870743
@@ -1501,10 +1517,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 400$"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/cooking meat" unique_id=2143284991]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/cooking meat" unique_id=2143284991]
 libraries/ = SubResource("AnimationLibrary_vaj68")
 
-[node name="use real meat" type="TextureButton" parent="starter burger" unique_id=1514243115]
+[node name="use real meat" type="TextureButton" parent="CanvasLayer" unique_id=1514243115]
 offset_left = 787.00006
 offset_top = 353.0
 offset_right = 819.00006
@@ -1513,12 +1529,12 @@ scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("9_lc2xo")
 script = ExtResource("14_boyg6")
 
-[node name="FontArea4" type="Sprite2D" parent="starter burger/use real meat" unique_id=635335720]
+[node name="FontArea4" type="Sprite2D" parent="CanvasLayer/use real meat" unique_id=635335720]
 position = Vector2(115.77011, 16.149017)
 scale = Vector2(1.0345775, 1.0093118)
 texture = ExtResource("7_iotsf")
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="starter burger/use real meat/FontArea4" unique_id=1811349502]
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/use real meat/FontArea4" unique_id=1811349502]
 offset_left = -70.72139
 offset_top = -14.6236105
 offset_right = 643.206
@@ -1530,7 +1546,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = " Use real meat dude...
 (+20%)"
 
-[node name="900" type="RichTextLabel" parent="starter burger/use real meat/FontArea4" unique_id=475456352]
+[node name="900" type="RichTextLabel" parent="CanvasLayer/use real meat/FontArea4" unique_id=475456352]
 modulate = Color(1, 1, 1, 0)
 offset_left = -156.66122
 offset_top = -10.035522
@@ -1544,10 +1560,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 900$"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/use real meat" unique_id=752385962]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/use real meat" unique_id=752385962]
 libraries/ = SubResource("AnimationLibrary_i2p71")
 
-[node name="serv w_ fried" type="TextureButton" parent="starter burger" unique_id=1318541615]
+[node name="serv w_ fried" type="TextureButton" parent="CanvasLayer" unique_id=1318541615]
 offset_left = 787.0
 offset_top = 432.0
 offset_right = 819.0
@@ -1556,12 +1572,12 @@ scale = Vector2(2.1594524, 2.1594524)
 texture_normal = ExtResource("10_215e1")
 script = ExtResource("16_e36ub")
 
-[node name="FontArea5" type="Sprite2D" parent="starter burger/serv w_ fried" unique_id=1190525429]
+[node name="FontArea5" type="Sprite2D" parent="CanvasLayer/serv w_ fried" unique_id=1190525429]
 position = Vector2(115.77011, 15.685928)
 scale = Vector2(1.0345775, 1.0093118)
 texture = ExtResource("7_iotsf")
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="starter burger/serv w_ fried/FontArea5" unique_id=606310354]
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/serv w_ fried/FontArea5" unique_id=606310354]
 offset_left = -71.6166
 offset_top = -7.7414546
 offset_right = 642.3108
@@ -1572,7 +1588,7 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = "serve with fries (+10$)"
 
-[node name="2000" type="RichTextLabel" parent="starter burger/serv w_ fried/FontArea5" unique_id=507031462]
+[node name="2000" type="RichTextLabel" parent="CanvasLayer/serv w_ fried/FontArea5" unique_id=507031462]
 modulate = Color(1, 1, 1, 0)
 offset_left = -166.95612
 offset_top = -8.200272
@@ -1586,10 +1602,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 2,000$"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/serv w_ fried" unique_id=1151586358]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/serv w_ fried" unique_id=1151586358]
 libraries/ = SubResource("AnimationLibrary_xfvwf")
 
-[node name="BUY1" type="RichTextLabel" parent="starter burger" unique_id=28239840]
+[node name="BUY1" type="RichTextLabel" parent="CanvasLayer" unique_id=28239840]
 offset_left = 1099.0
 offset_top = 91.0
 offset_right = 1127.0
@@ -1601,10 +1617,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " !"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/BUY1" unique_id=2008773240]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY1" unique_id=2008773240]
 libraries/ = SubResource("AnimationLibrary_082n1")
 
-[node name="BUY2" type="RichTextLabel" parent="starter burger" unique_id=1927553566]
+[node name="BUY2" type="RichTextLabel" parent="CanvasLayer" unique_id=1927553566]
 offset_left = 1098.0
 offset_top = 172.0
 offset_right = 1126.0
@@ -1616,10 +1632,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " !"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/BUY2" unique_id=124811218]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY2" unique_id=124811218]
 libraries/ = SubResource("AnimationLibrary_082n1")
 
-[node name="BUY3" type="RichTextLabel" parent="starter burger" unique_id=1086239327]
+[node name="BUY3" type="RichTextLabel" parent="CanvasLayer" unique_id=1086239327]
 offset_left = 1098.0
 offset_top = 252.0
 offset_right = 1126.0
@@ -1631,10 +1647,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " !"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/BUY3" unique_id=22269238]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY3" unique_id=22269238]
 libraries/ = SubResource("AnimationLibrary_082n1")
 
-[node name="BUY4" type="RichTextLabel" parent="starter burger" unique_id=852053640]
+[node name="BUY4" type="RichTextLabel" parent="CanvasLayer" unique_id=852053640]
 offset_left = 1103.0
 offset_top = 328.0
 offset_right = 1131.0
@@ -1646,10 +1662,10 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " !"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/BUY4" unique_id=2046915504]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY4" unique_id=2046915504]
 libraries/ = SubResource("AnimationLibrary_082n1")
 
-[node name="BUY5" type="RichTextLabel" parent="starter burger" unique_id=858172003]
+[node name="BUY5" type="RichTextLabel" parent="CanvasLayer" unique_id=858172003]
 offset_left = 1102.0
 offset_top = 405.0
 offset_right = 1130.0
@@ -1661,55 +1677,55 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " !"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/BUY5" unique_id=584353892]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BUY5" unique_id=584353892]
 libraries/ = SubResource("AnimationLibrary_082n1")
 
-[node name="Done1" type="Sprite2D" parent="starter burger" unique_id=101237383]
+[node name="Done1" type="Sprite2D" parent="CanvasLayer" unique_id=101237383]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(822.00006, 149)
 scale = Vector2(2.0762892, 2.0762892)
 texture = ExtResource("17_e8heu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/Done1" unique_id=1755626463]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done1" unique_id=1755626463]
 libraries/ = SubResource("AnimationLibrary_aa0lp")
 
-[node name="Done2" type="Sprite2D" parent="starter burger" unique_id=1040797612]
+[node name="Done2" type="Sprite2D" parent="CanvasLayer" unique_id=1040797612]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(822.00006, 228)
 scale = Vector2(2.0762892, 2.0762892)
 texture = ExtResource("17_e8heu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/Done2" unique_id=1715335599]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done2" unique_id=1715335599]
 libraries/ = SubResource("AnimationLibrary_aa0lp")
 
-[node name="Done3" type="Sprite2D" parent="starter burger" unique_id=1522655422]
+[node name="Done3" type="Sprite2D" parent="CanvasLayer" unique_id=1522655422]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(822.00006, 309.00003)
 scale = Vector2(2.0762892, 2.0762892)
 texture = ExtResource("17_e8heu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/Done3" unique_id=1817478170]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done3" unique_id=1817478170]
 libraries/ = SubResource("AnimationLibrary_aa0lp")
 
-[node name="Done4" type="Sprite2D" parent="starter burger" unique_id=1407976162]
+[node name="Done4" type="Sprite2D" parent="CanvasLayer" unique_id=1407976162]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(822.00006, 390)
 scale = Vector2(2.0762892, 2.0762892)
 texture = ExtResource("17_e8heu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/Done4" unique_id=264053079]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done4" unique_id=264053079]
 libraries/ = SubResource("AnimationLibrary_aa0lp")
 
-[node name="Done5" type="Sprite2D" parent="starter burger" unique_id=652207527]
+[node name="Done5" type="Sprite2D" parent="CanvasLayer" unique_id=652207527]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(822.00006, 465.99997)
 scale = Vector2(2.0762892, 2.0762892)
 texture = ExtResource("17_e8heu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/Done5" unique_id=1224397410]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Done5" unique_id=1224397410]
 libraries/ = SubResource("AnimationLibrary_aa0lp")
 
-[node name="UPGRDCHEZ" type="TextureButton" parent="starter burger" unique_id=1199896212]
+[node name="UPGRDCHEZ" type="TextureButton" parent="CanvasLayer" unique_id=1199896212]
 offset_left = 1004.0
 offset_top = 551.0
 offset_right = 1036.0
@@ -1718,10 +1734,10 @@ scale = Vector2(3.8441868, 3.8441868)
 pivot_offset = Vector2(16, 16)
 texture_normal = ExtResource("18_rvswv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="starter burger/UPGRDCHEZ" unique_id=534259930]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UPGRDCHEZ" unique_id=534259930]
 libraries/ = SubResource("AnimationLibrary_edr7y")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="starter burger/UPGRDCHEZ" unique_id=1413445538]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UPGRDCHEZ" unique_id=1413445538]
 layout_mode = 0
 offset_left = -36.28675
 offset_top = -0.12824857
@@ -1733,390 +1749,7 @@ theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 5,000$"
 
-[node name="HAMGON" type="AnimationPlayer" parent="starter burger" unique_id=759709668]
-libraries/ = SubResource("AnimationLibrary_cfc7e")
-
-[node name="CHEZ BURGER" type="CanvasLayer" parent="." unique_id=1611499197]
-
-[node name="ShopArea" type="Sprite2D" parent="CHEZ BURGER" unique_id=636191098]
-position = Vector2(1010.49994, 323.5)
-scale = Vector2(2.9562502, 4.04375)
-texture = ExtResource("5_7jktm")
-
-[node name="shop" type="RichTextLabel" parent="CHEZ BURGER" unique_id=1201807073]
-offset_left = 797.99994
-offset_top = 10.999977
-offset_right = 1395.8
-offset_bottom = 189.99997
-scale = Vector2(0.568708, 0.568708)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 211
-theme_override_constants/outline_size = 41
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 160
-text = "shop!"
-horizontal_alignment = 1
-
-[node name="buttered buns" type="TextureButton" parent="CHEZ BURGER" unique_id=200414565]
-offset_left = 787.0
-offset_top = 114.0
-offset_right = 819.00006
-offset_bottom = 146.00015
-scale = Vector2(2.1594524, 2.1594524)
-texture_normal = ExtResource("6_hve3p")
-script = ExtResource("7_80cx4")
-
-[node name="FontArea" type="Sprite2D" parent="CHEZ BURGER/buttered buns" unique_id=689911180]
-position = Vector2(115.77005, 16.148993)
-scale = Vector2(1.0345775, 1.0093118)
-texture = ExtResource("7_iotsf")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CHEZ BURGER/buttered buns/FontArea" unique_id=925313992]
-offset_left = -72.51181
-offset_top = -8.200262
-offset_right = 518.3246
-offset_bottom = 141.48428
-scale = Vector2(0.2107943, 0.2107943)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " Butter your buns! (+1$)"
-
-[node name="50" type="RichTextLabel" parent="CHEZ BURGER/buttered buns/FontArea" unique_id=917309506]
-modulate = Color(1, 1, 1, 0)
-offset_left = -146.81396
-offset_top = -12.78833
-offset_right = -49.572754
-offset_bottom = 57.932556
-scale = Vector2(0.31430402, 0.31430402)
-mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " 50$"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/buttered buns" unique_id=249155034]
-libraries/ = SubResource("AnimationLibrary_qhcbd")
-
-[node name="mystermy meat" type="TextureButton" parent="CHEZ BURGER" unique_id=1299795437]
-offset_left = 787.0
-offset_top = 194.0
-offset_right = 819.0
-offset_bottom = 226.0
-scale = Vector2(2.1594524, 2.1594524)
-texture_normal = ExtResource("7_mfdv2")
-script = ExtResource("10_e8heu")
-
-[node name="FontArea2" type="Sprite2D" parent="CHEZ BURGER/mystermy meat" unique_id=309372633]
-position = Vector2(115.77011, 16.148994)
-scale = Vector2(1.0345775, 1.0093118)
-texture = ExtResource("7_iotsf")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CHEZ BURGER/mystermy meat/FontArea2" unique_id=1873953153]
-offset_left = -74.74982
-offset_top = -14.164773
-offset_right = 639.17755
-offset_bottom = 129.34865
-scale = Vector2(0.211, 0.211)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " Better mystery meat!
- (+2$)"
-
-[node name="150" type="RichTextLabel" parent="CHEZ BURGER/mystermy meat/FontArea2" unique_id=309197416]
-modulate = Color(1, 1, 1, 0)
-offset_left = -151.29001
-offset_top = -9.576691
-offset_right = -7.272064
-offset_bottom = 86.280945
-scale = Vector2(0.31430402, 0.31430402)
-theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " 150$"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/mystermy meat" unique_id=385667155]
-libraries/ = SubResource("AnimationLibrary_e36ub")
-
-[node name="cooking meat" type="TextureButton" parent="CHEZ BURGER" unique_id=1875885823]
-offset_left = 787.00006
-offset_top = 273.0
-offset_right = 819.00006
-offset_bottom = 305.0
-scale = Vector2(2.1594524, 2.1594524)
-texture_normal = ExtResource("8_iotsf")
-script = ExtResource("12_rvswv")
-
-[node name="FontArea3" type="Sprite2D" parent="CHEZ BURGER/cooking meat" unique_id=956487847]
-position = Vector2(115.77011, 16.148987)
-scale = Vector2(1.0345775, 1.0093118)
-texture = ExtResource("7_iotsf")
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="CHEZ BURGER/cooking meat/FontArea3" unique_id=1668720786]
-offset_left = -74.74988
-offset_top = -15.082397
-offset_right = 639.1775
-offset_bottom = 128.43103
-scale = Vector2(0.211, 0.211)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " Actually cook the meat.?
-(x2$)"
-
-[node name="400" type="RichTextLabel" parent="CHEZ BURGER/cooking meat/FontArea3" unique_id=1944221553]
-modulate = Color(1, 1, 1, 0)
-offset_left = -153.97562
-offset_top = -11.870743
-offset_right = -9.957672
-offset_bottom = 83.98689
-scale = Vector2(0.31430402, 0.31430402)
-theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " 400$"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/cooking meat" unique_id=1612906540]
-libraries/ = SubResource("AnimationLibrary_vaj68")
-
-[node name="use real meat" type="TextureButton" parent="CHEZ BURGER" unique_id=1219091282]
-offset_left = 787.00006
-offset_top = 353.0
-offset_right = 819.00006
-offset_bottom = 385.0
-scale = Vector2(2.1594524, 2.1594524)
-texture_normal = ExtResource("9_lc2xo")
-script = ExtResource("14_boyg6")
-
-[node name="FontArea4" type="Sprite2D" parent="CHEZ BURGER/use real meat" unique_id=543480829]
-position = Vector2(115.77011, 16.149017)
-scale = Vector2(1.0345775, 1.0093118)
-texture = ExtResource("7_iotsf")
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="CHEZ BURGER/use real meat/FontArea4" unique_id=74829877]
-offset_left = -70.72139
-offset_top = -14.6236105
-offset_right = 643.206
-offset_bottom = 128.88982
-scale = Vector2(0.211, 0.211)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " Use real meat dude...
-(+20%)"
-
-[node name="900" type="RichTextLabel" parent="CHEZ BURGER/use real meat/FontArea4" unique_id=1754551945]
-modulate = Color(1, 1, 1, 0)
-offset_left = -156.66122
-offset_top = -10.035522
-offset_right = -12.64328
-offset_bottom = 85.82211
-scale = Vector2(0.31430402, 0.31430402)
-theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " 900$"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/use real meat" unique_id=16632100]
-libraries/ = SubResource("AnimationLibrary_i2p71")
-
-[node name="serv w_ fried" type="TextureButton" parent="CHEZ BURGER" unique_id=1246019734]
-offset_left = 787.0
-offset_top = 432.0
-offset_right = 819.0
-offset_bottom = 464.0
-scale = Vector2(2.1594524, 2.1594524)
-texture_normal = ExtResource("10_215e1")
-script = ExtResource("16_e36ub")
-
-[node name="FontArea5" type="Sprite2D" parent="CHEZ BURGER/serv w_ fried" unique_id=450184457]
-position = Vector2(115.77011, 15.685928)
-scale = Vector2(1.0345775, 1.0093118)
-texture = ExtResource("7_iotsf")
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="CHEZ BURGER/serv w_ fried/FontArea5" unique_id=36063679]
-offset_left = -71.6166
-offset_top = -7.7414546
-offset_right = 642.3108
-offset_bottom = 135.77197
-scale = Vector2(0.211, 0.211)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = "serve with fries (+10$)"
-
-[node name="2000" type="RichTextLabel" parent="CHEZ BURGER/serv w_ fried/FontArea5" unique_id=185881432]
-modulate = Color(1, 1, 1, 0)
-offset_left = -166.95612
-offset_top = -8.200272
-offset_right = 11.319397
-offset_bottom = 87.657364
-scale = Vector2(0.31430402, 0.31430402)
-theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " 2,000$"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/serv w_ fried" unique_id=1173638342]
-libraries/ = SubResource("AnimationLibrary_xfvwf")
-
-[node name="BUY1" type="RichTextLabel" parent="CHEZ BURGER" unique_id=1082804984]
-offset_left = 1099.0
-offset_top = 91.0
-offset_right = 1127.0
-offset_bottom = 165.0
-scale = Vector2(1.6279612, 1.6279612)
-theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " !"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/BUY1" unique_id=1503453770]
-libraries/ = SubResource("AnimationLibrary_082n1")
-
-[node name="BUY2" type="RichTextLabel" parent="CHEZ BURGER" unique_id=1762280481]
-offset_left = 1098.0
-offset_top = 172.0
-offset_right = 1126.0
-offset_bottom = 246.0
-scale = Vector2(1.6279612, 1.6279612)
-theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " !"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/BUY2" unique_id=1018717559]
-libraries/ = SubResource("AnimationLibrary_082n1")
-
-[node name="BUY3" type="RichTextLabel" parent="CHEZ BURGER" unique_id=1843591714]
-offset_left = 1098.0
-offset_top = 252.0
-offset_right = 1126.0
-offset_bottom = 326.0
-scale = Vector2(1.6279612, 1.6279612)
-theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " !"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/BUY3" unique_id=2028946574]
-libraries/ = SubResource("AnimationLibrary_082n1")
-
-[node name="BUY4" type="RichTextLabel" parent="CHEZ BURGER" unique_id=1060424393]
-offset_left = 1103.0
-offset_top = 328.0
-offset_right = 1131.0
-offset_bottom = 402.0
-scale = Vector2(1.6279612, 1.6279612)
-theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " !"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/BUY4" unique_id=71381103]
-libraries/ = SubResource("AnimationLibrary_082n1")
-
-[node name="BUY5" type="RichTextLabel" parent="CHEZ BURGER" unique_id=684708572]
-offset_left = 1102.0
-offset_top = 405.0
-offset_right = 1130.0
-offset_bottom = 479.0
-scale = Vector2(1.6279612, 1.6279612)
-theme_override_colors/default_color = Color(0.85882354, 0, 0.07058824, 0)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " !"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/BUY5" unique_id=1998157036]
-libraries/ = SubResource("AnimationLibrary_082n1")
-
-[node name="Done1" type="Sprite2D" parent="CHEZ BURGER" unique_id=127888441]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(822.00006, 149)
-scale = Vector2(2.0762892, 2.0762892)
-texture = ExtResource("17_e8heu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/Done1" unique_id=1223017031]
-libraries/ = SubResource("AnimationLibrary_aa0lp")
-
-[node name="Done2" type="Sprite2D" parent="CHEZ BURGER" unique_id=1863094363]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(822.00006, 228)
-scale = Vector2(2.0762892, 2.0762892)
-texture = ExtResource("17_e8heu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/Done2" unique_id=1179711701]
-libraries/ = SubResource("AnimationLibrary_aa0lp")
-
-[node name="Done3" type="Sprite2D" parent="CHEZ BURGER" unique_id=701417518]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(822.00006, 309.00003)
-scale = Vector2(2.0762892, 2.0762892)
-texture = ExtResource("17_e8heu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/Done3" unique_id=69524054]
-libraries/ = SubResource("AnimationLibrary_aa0lp")
-
-[node name="Done4" type="Sprite2D" parent="CHEZ BURGER" unique_id=26116248]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(822.00006, 390)
-scale = Vector2(2.0762892, 2.0762892)
-texture = ExtResource("17_e8heu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/Done4" unique_id=377194440]
-libraries/ = SubResource("AnimationLibrary_aa0lp")
-
-[node name="Done5" type="Sprite2D" parent="CHEZ BURGER" unique_id=101765338]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(822.00006, 465.99997)
-scale = Vector2(2.0762892, 2.0762892)
-texture = ExtResource("17_e8heu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/Done5" unique_id=416550128]
-libraries/ = SubResource("AnimationLibrary_aa0lp")
-
-[node name="UPGRDCHEZ" type="TextureButton" parent="CHEZ BURGER" unique_id=439142792]
-offset_left = 1004.0
-offset_top = 551.0
-offset_right = 1036.0
-offset_bottom = 583.0
-scale = Vector2(3.8441868, 3.8441868)
-pivot_offset = Vector2(16, 16)
-texture_normal = ExtResource("18_rvswv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEZ BURGER/UPGRDCHEZ" unique_id=1059692254]
-libraries/ = SubResource("AnimationLibrary_edr7y")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CHEZ BURGER/UPGRDCHEZ" unique_id=1514005547]
-layout_mode = 0
-offset_left = -36.28675
-offset_top = -0.12824857
-offset_right = 123.81951
-offset_bottom = 73.73143
-scale = Vector2(0.23071489, 0.23071489)
-theme_override_constants/outline_size = 12
-theme_override_fonts/normal_font = ExtResource("4_fc0e3")
-theme_override_font_sizes/normal_font_size = 64
-text = " 5,000$"
-
-[node name="HAMGON" type="AnimationPlayer" parent="CHEZ BURGER" unique_id=1425487416]
+[node name="HAMGON" type="AnimationPlayer" parent="CanvasLayer" unique_id=759709668]
 libraries/ = SubResource("AnimationLibrary_cfc7e")
 
 [node name="loadingscreen" type="Sprite2D" parent="." unique_id=1518520312]
@@ -2247,35 +1880,19 @@ libraries/ = SubResource("AnimationLibrary_2tki7")
 [connection signal="pressed" from="MAINCLICKER" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="MAINCLICKER" to="MAINCLICKER" method="_on_pressed"]
 [connection signal="timeout" from="MONEY_PER_SEC/MoneyTimer" to="." method="_on_money_timer_timeout"]
-[connection signal="mouse_entered" from="starter burger/buttered buns" to="starter burger/buttered buns" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="starter burger/buttered buns" to="starter burger/buttered buns" method="_on_mouse_exited"]
-[connection signal="pressed" from="starter burger/buttered buns" to="." method="_on_buttered_buns_pressed"]
-[connection signal="mouse_entered" from="starter burger/mystermy meat" to="starter burger/mystermy meat" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="starter burger/mystermy meat" to="starter burger/mystermy meat" method="_on_mouse_exited"]
-[connection signal="pressed" from="starter burger/mystermy meat" to="." method="_on_mystermy_meat_pressed"]
-[connection signal="mouse_entered" from="starter burger/cooking meat" to="starter burger/cooking meat" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="starter burger/cooking meat" to="starter burger/cooking meat" method="_on_mouse_exited"]
-[connection signal="pressed" from="starter burger/cooking meat" to="." method="_on_cooking_meat_pressed"]
-[connection signal="mouse_entered" from="starter burger/use real meat" to="starter burger/use real meat" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="starter burger/use real meat" to="starter burger/use real meat" method="_on_mouse_exited"]
-[connection signal="pressed" from="starter burger/use real meat" to="." method="_on_use_real_meat_pressed"]
-[connection signal="mouse_entered" from="starter burger/serv w_ fried" to="starter burger/serv w_ fried" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="starter burger/serv w_ fried" to="starter burger/serv w_ fried" method="_on_mouse_exited"]
-[connection signal="pressed" from="starter burger/serv w_ fried" to="." method="_on_serv_w__fried_pressed"]
-[connection signal="pressed" from="starter burger/UPGRDCHEZ" to="." method="_on_upgrdchez_pressed"]
-[connection signal="mouse_entered" from="CHEZ BURGER/buttered buns" to="CHEZ BURGER/buttered buns" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CHEZ BURGER/buttered buns" to="CHEZ BURGER/buttered buns" method="_on_mouse_exited"]
-[connection signal="pressed" from="CHEZ BURGER/buttered buns" to="." method="_on_buttered_buns_pressed"]
-[connection signal="mouse_entered" from="CHEZ BURGER/mystermy meat" to="CHEZ BURGER/mystermy meat" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CHEZ BURGER/mystermy meat" to="CHEZ BURGER/mystermy meat" method="_on_mouse_exited"]
-[connection signal="pressed" from="CHEZ BURGER/mystermy meat" to="." method="_on_mystermy_meat_pressed"]
-[connection signal="mouse_entered" from="CHEZ BURGER/cooking meat" to="CHEZ BURGER/cooking meat" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CHEZ BURGER/cooking meat" to="CHEZ BURGER/cooking meat" method="_on_mouse_exited"]
-[connection signal="pressed" from="CHEZ BURGER/cooking meat" to="." method="_on_cooking_meat_pressed"]
-[connection signal="mouse_entered" from="CHEZ BURGER/use real meat" to="CHEZ BURGER/use real meat" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CHEZ BURGER/use real meat" to="CHEZ BURGER/use real meat" method="_on_mouse_exited"]
-[connection signal="pressed" from="CHEZ BURGER/use real meat" to="." method="_on_use_real_meat_pressed"]
-[connection signal="mouse_entered" from="CHEZ BURGER/serv w_ fried" to="CHEZ BURGER/serv w_ fried" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CHEZ BURGER/serv w_ fried" to="CHEZ BURGER/serv w_ fried" method="_on_mouse_exited"]
-[connection signal="pressed" from="CHEZ BURGER/serv w_ fried" to="." method="_on_serv_w__fried_pressed"]
-[connection signal="pressed" from="CHEZ BURGER/UPGRDCHEZ" to="." method="_on_upgrdchez_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/buttered buns" to="CanvasLayer/buttered buns" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/buttered buns" to="." method="_on_buttered_buns_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/mystermy meat" to="CanvasLayer/mystermy meat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/mystermy meat" to="CanvasLayer/mystermy meat" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/mystermy meat" to="." method="_on_mystermy_meat_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/cooking meat" to="CanvasLayer/cooking meat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/cooking meat" to="CanvasLayer/cooking meat" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/cooking meat" to="." method="_on_cooking_meat_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/use real meat" to="CanvasLayer/use real meat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/use real meat" to="CanvasLayer/use real meat" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/use real meat" to="." method="_on_use_real_meat_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/serv w_ fried" to="CanvasLayer/serv w_ fried" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/serv w_ fried" to="CanvasLayer/serv w_ fried" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/serv w_ fried" to="." method="_on_serv_w__fried_pressed"]
+[connection signal="pressed" from="CanvasLayer/UPGRDCHEZ" to="." method="_on_upgrdchez_pressed"]
