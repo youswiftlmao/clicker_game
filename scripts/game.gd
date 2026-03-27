@@ -150,3 +150,28 @@ func MPSUPD():
 func _on_upgrdchez_pressed() -> void:
 	if money >= 5000:
 		money -= 5000
+		$loadingscreen/AnimationPlayer.play("renovation")
+		$loadingscreen/LOADING/LOADER.play("LOADER")
+		$CanvasLayer/HAMGON.play("fadeout")
+		await $CanvasLayer/HAMGON.animation_finished
+		$CanvasLayer.visible = false
+		$MAINCLICKER.texture_normal = preload("res://assets/chez.png")
+		$MAINCLICKER.custom_minimum_size = Vector2(30.1, 23.0)
+		await $loadingscreen/AnimationPlayer.animation_finished
+		money = 0 
+		moneypersec = 20
+		moneyperclick = 10
+# below here is chez burger upgrade area 
+#-------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------
+
+#---------------------------------chez------------------------------------
+
+#-------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------
