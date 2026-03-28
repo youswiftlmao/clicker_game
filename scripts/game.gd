@@ -30,10 +30,11 @@ func _ready():
 func _on_texture_button_pressed() -> void:
 	money += moneyperclick
 	pop_label()
-	
+
 
 
 func _process(delta: float) -> void:
+	$perclic.text = " Money per click: " + str(moneyperclick)
 	var speed := 2000  # how fast the number catches up per second
 
 	if displayed_money < money:
@@ -52,28 +53,48 @@ func _process(delta: float) -> void:
 
 	money_per_sec_label.text = "+ " + str(moneypersec) + " /sec"
 	
-	
-	if money >= 50 and !bought1 and ham :
-		$CanvasLayer/BUY1/AnimationPlayer.play("fade")
-	else :
-		$CanvasLayer/BUY1/AnimationPlayer.stop()
+	#this is the area where upgrade antexture ids are updated
+	if chez:
+		$"CanvasLayer/buttered buns".texture_normal = load("res://assets/ketchup.png")
+		$"CanvasLayer/mystermy meat".texture_normal = load("res://assets/PROPA CHEESE.png")
+		$"CanvasLayer/cooking meat".texture_normal = load("res://assets/soda.png")
+		$"CanvasLayer/use real meat".texture_normal = load("res://assets/shipblocked.png")
+		$CanvasLayer/UPGRDCHEZ.texture_normal = load("res://assets/bigmacc.png")
+		if money >= 500  and !bought1:
+			$CanvasLayer/BUY1/AnimationPlayer.play("fade")
+		else :
+			$CanvasLayer/BUY1/AnimationPlayer.stop()
+			
+		if money >= 1250 and !bought2:
+			$CanvasLayer/BUY2/AnimationPlayer.play("fade")
+		else:
+			$CanvasLayer/BUY2/AnimationPlayer.stop()
+			
+			
+	if ham:
+		if money >= 50  :
+			$CanvasLayer/BUY1/AnimationPlayer.play("fade")
+		else :
+			$CanvasLayer/BUY1/AnimationPlayer.stop()
 
-	if money >= 150 and !bought2 and ham:
-		$CanvasLayer/BUY2/AnimationPlayer.play("fade")
-	else:
-		$CanvasLayer/BUY2/AnimationPlayer.stop()
-	if money >= 400 and !bought3 and ham:
-		$CanvasLayer/BUY3/AnimationPlayer.play("fade")
-	else:
-		$CanvasLayer/BUY3/AnimationPlayer.stop()
-	if money >= 900 and !bought4 and ham:
-		$CanvasLayer/BUY4/AnimationPlayer.play("fade")
-	else:
-		$CanvasLayer/BUY4/AnimationPlayer.stop()
-	if money >= 2000 and !bought5 and ham:
-		$CanvasLayer/BUY5/AnimationPlayer.play("fade")
-	else:
-		$CanvasLayer/BUY5/AnimationPlayer.stop()
+		if money >= 150 :
+			$CanvasLayer/BUY2/AnimationPlayer.play("fade")
+		else:
+			$CanvasLayer/BUY2/AnimationPlayer.stop()
+		if money >= 400 and !bought3 and ham:
+			$CanvasLayer/BUY3/AnimationPlayer.play("fade")
+		else:
+			$CanvasLayer/BUY3/AnimationPlayer.stop()
+		if money >= 900 and !bought4 and ham:
+			$CanvasLayer/BUY4/AnimationPlayer.play("fade")
+		else:
+			$CanvasLayer/BUY4/AnimationPlayer.stop()
+		if money >= 2000 and !bought5 and ham:
+			$CanvasLayer/BUY5/AnimationPlayer.play("fade")
+		else:
+			$CanvasLayer/BUY5/AnimationPlayer.stop()
+
+	
 func pop_label():
 	moneycount.scale = base_scale
 
@@ -97,6 +118,14 @@ func _on_buttered_buns_pressed() -> void:
 
 
 		bought1 = true
+	if money >= 500 and chez:
+		money -= 500
+		moneyperclick += 5
+		moneypersec += 3
+		$"CanvasLayer/buttered buns/AnimationPlayer".play("pessed")
+		$CanvasLayer/Done1/AnimationPlayer.play("DONE")
+		$"CanvasLayer/buttered buns".mouse_filter = Control.MOUSE_FILTER_IGNORE
+		bought1 = true
 
 
 func _on_money_timer_timeout() -> void:
@@ -108,6 +137,15 @@ func _on_mystermy_meat_pressed() -> void:
 		money -= 150
 		moneyperclick += 2
 		moneypersec += 1
+		$"CanvasLayer/mystermy meat/AnimationPlayer".play("pressed")
+		$CanvasLayer/Done2/AnimationPlayer.play("DONE")
+		$"CanvasLayer/mystermy meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
+		bought2 = true
+		
+	if money >= 1250 and chez:
+		money -= 1250
+		moneyperclick += 5
+		moneypersec += 7
 		$"CanvasLayer/mystermy meat/AnimationPlayer".play("pressed")
 		$CanvasLayer/Done2/AnimationPlayer.play("DONE")
 		$"CanvasLayer/mystermy meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -164,10 +202,15 @@ func _on_upgrdchez_pressed() -> void:
 		$MAINCLICKER.custom_minimum_size = Vector2(30.1, 23.0)
 		await $loadingscreen/AnimationPlayer.animation_finished
 		$CanvasLayer/HAMGON.play("fadin")
+	
 		money = 0 
 		moneypersec = 20
 		moneyperclick = 10
 		ham = false
 		chez = true
-	
+		bought1 = false
+		bought2 = false
+		bought3 = false
+		bought4 = false
+		bought5 = false
 #upd nvm will add it whithing here only
