@@ -31,6 +31,7 @@ func _on_texture_button_pressed() -> void:
 	money += moneyperclick
 	pop_label()
 
+	
 
 
 func _process(delta: float) -> void:
@@ -56,9 +57,17 @@ func _process(delta: float) -> void:
 	#this is the area where upgrade antexture ids are updated
 	if chez:
 		$"CanvasLayer/buttered buns".texture_normal = load("res://assets/ketchup.png")
+		$"CanvasLayer/buttered buns/FontArea/RichTextLabel".text = " ketchup for flavourrr"
+		$"CanvasLayer/buttered buns/FontArea/50".text = " $500 "
 		$"CanvasLayer/mystermy meat".texture_normal = load("res://assets/PROPA CHEESE.png")
+		$"CanvasLayer/mystermy meat/FontArea2/RichTextLabel".text = " AMERICAN PLASTIC? WE USE
+ CHEDDA FROM FRANCE"
+		$"CanvasLayer/mystermy meat/FontArea2/150".text = " $1.25k"
 		$"CanvasLayer/cooking meat".texture_normal = load("res://assets/soda.png")
+		$"CanvasLayer/cooking meat/FontArea3/RichTextLabel2".text = " serve with soda"
+		$"CanvasLayer/cooking meat/FontArea3/400".text = "placeholder"
 		$"CanvasLayer/use real meat".texture_normal = load("res://assets/shipblocked.png")
+		$"CanvasLayer/serv w_ fried".texture_normal = load("res://assets/locLLysourcedmeatsmh.png")
 		$CanvasLayer/UPGRDCHEZ.texture_normal = load("res://assets/bigmacc.png")
 		if money >= 500  and !bought1:
 			$CanvasLayer/BUY1/AnimationPlayer.play("fade")
@@ -213,4 +222,6 @@ func _on_upgrdchez_pressed() -> void:
 		bought3 = false
 		bought4 = false
 		bought5 = false
+
+		# ^ fixes layout issue
 #upd nvm will add it whithing here only

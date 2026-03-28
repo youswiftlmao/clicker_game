@@ -6,7 +6,9 @@
 [ext_resource type="FontFile" uid="uid://bh6jvsa7eqolq" path="res://text/Jersey10-Regular.ttf" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cn1ke6hsw4ouk" path="res://assets/shop area.png" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cffymdsilj704" path="res://assets/BUTTERR.png" id="6_hve3p"]
+[ext_resource type="Script" uid="uid://dfvwx188yoi2q" path="res://scripts/cps.gd" id="7_5b14r"]
 [ext_resource type="Script" uid="uid://1sjsqm5iy5ui" path="res://scripts/buttered_buns.gd" id="7_80cx4"]
+[ext_resource type="Script" uid="uid://ck1kge5ppp2qw" path="res://scripts/perclic.gd" id="7_bnpwn"]
 [ext_resource type="Texture2D" uid="uid://cvwamqierilmm" path="res://assets/FONT AREA.png" id="7_iotsf"]
 [ext_resource type="Texture2D" uid="uid://d2bt51p85fqq2" path="res://assets/MEATT.png" id="7_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://b4x7k8ju3bvf" path="res://assets/FIREEE.png" id="8_iotsf"]
@@ -1380,6 +1382,7 @@ theme_override_constants/outline_size = 43
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 160
 text = " moneyy"
+script = ExtResource("7_bnpwn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1137973250]
 
@@ -1430,10 +1433,10 @@ text = " Butter your buns! (+1$)"
 
 [node name="50" type="RichTextLabel" parent="CanvasLayer/buttered buns/FontArea" unique_id=1003711433]
 modulate = Color(1, 1, 1, 0)
-offset_left = -146.81396
-offset_top = -12.78833
-offset_right = -49.572754
-offset_bottom = 57.932556
+offset_left = -189.78377
+offset_top = -10.49431
+offset_right = 48.443954
+offset_bottom = 60.226578
 scale = Vector2(0.31430402, 0.31430402)
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
@@ -1441,7 +1444,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
-text = " 50$"
+text = " 50$ "
+horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/buttered buns" unique_id=1766923545]
 libraries/ = SubResource("AnimationLibrary_qhcbd")
@@ -1474,9 +1478,9 @@ text = " Better mystery meat!
 
 [node name="150" type="RichTextLabel" parent="CanvasLayer/mystermy meat/FontArea2" unique_id=912043238]
 modulate = Color(1, 1, 1, 0)
-offset_left = -151.29001
+offset_left = -252.44829
 offset_top = -9.576691
-offset_right = -7.272064
+offset_right = 173.54317
 offset_bottom = 86.280945
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
@@ -1485,6 +1489,7 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 150$"
+horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/mystermy meat" unique_id=646479395]
 libraries/ = SubResource("AnimationLibrary_e36ub")
@@ -1517,10 +1522,10 @@ text = " Actually cook the meat.?
 
 [node name="400" type="RichTextLabel" parent="CanvasLayer/cooking meat/FontArea3" unique_id=598038401]
 modulate = Color(1, 1, 1, 0)
-offset_left = -153.97562
-offset_top = -11.870743
-offset_right = -9.957672
-offset_bottom = 83.98689
+offset_left = -244.3915
+offset_top = -10.953113
+offset_right = 158.81444
+offset_bottom = 84.904526
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1528,6 +1533,7 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 400$"
+horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/cooking meat" unique_id=2143284991]
 libraries/ = SubResource("AnimationLibrary_vaj68")
@@ -1560,10 +1566,10 @@ text = " Use real meat dude...
 
 [node name="900" type="RichTextLabel" parent="CanvasLayer/use real meat/FontArea4" unique_id=475456352]
 modulate = Color(1, 1, 1, 0)
-offset_left = -156.66122
-offset_top = -10.035522
-offset_right = -12.64328
-offset_bottom = 85.82211
+offset_left = -243.49628
+offset_top = -9.117907
+offset_right = 155.43726
+offset_bottom = 86.73973
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1571,6 +1577,7 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 900$"
+horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/use real meat" unique_id=752385962]
 libraries/ = SubResource("AnimationLibrary_i2p71")
@@ -1602,10 +1609,10 @@ text = "serve with fries (+10$)"
 
 [node name="2000" type="RichTextLabel" parent="CanvasLayer/serv w_ fried/FontArea5" unique_id=507031462]
 modulate = Color(1, 1, 1, 0)
-offset_left = -166.95612
-offset_top = -8.200272
-offset_right = 11.319397
-offset_bottom = 87.657364
+offset_left = -219.32567
+offset_top = -7.7414775
+offset_right = 98.512405
+offset_bottom = 88.11616
 scale = Vector2(0.31430402, 0.31430402)
 theme_override_colors/default_color = Color(0, 0.84313726, 0.21176471, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1613,6 +1620,7 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/normal_font = ExtResource("4_fc0e3")
 theme_override_font_sizes/normal_font_size = 64
 text = " 2,000$"
+horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/serv w_ fried" unique_id=1151586358]
 libraries/ = SubResource("AnimationLibrary_xfvwf")
@@ -1763,6 +1771,19 @@ text = " 5,000$"
 
 [node name="HAMGON" type="AnimationPlayer" parent="CanvasLayer" unique_id=759709668]
 libraries/ = SubResource("AnimationLibrary_cfc7e")
+
+[node name="cps" type="RichTextLabel" parent="CanvasLayer" unique_id=1183962096]
+offset_left = 319.99997
+offset_top = 209.99998
+offset_right = 994.9603
+offset_bottom = 389.0
+scale = Vector2(0.26520082, 0.26520082)
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 43
+theme_override_fonts/normal_font = ExtResource("4_fc0e3")
+theme_override_font_sizes/normal_font_size = 160
+text = " moneyy"
+script = ExtResource("7_5b14r")
 
 [node name="loadingscreen" type="Sprite2D" parent="." unique_id=1518520312]
 z_index = 3680
