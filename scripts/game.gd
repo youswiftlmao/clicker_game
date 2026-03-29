@@ -55,6 +55,7 @@ func _process(delta: float) -> void:
 	money_per_sec_label.text = "+ " + str(moneypersec) + " /sec"
 	
 	#this is the area where upgrade antexture ids are updated
+
 	if chez:
 		$"CanvasLayer/buttered buns".texture_normal = load("res://assets/ketchup.png")
 		$"CanvasLayer/buttered buns/FontArea/RichTextLabel".text = " ketchup for flavourrr"
@@ -64,11 +65,18 @@ func _process(delta: float) -> void:
  CHEDDA FROM FRANCE"
 		$"CanvasLayer/mystermy meat/FontArea2/150".text = " $1.25k"
 		$"CanvasLayer/cooking meat".texture_normal = load("res://assets/soda.png")
-		$"CanvasLayer/cooking meat/FontArea3/RichTextLabel2".text = " serve with soda"
-		$"CanvasLayer/cooking meat/FontArea3/400".text = "placeholder"
+		
+		$"CanvasLayer/cooking meat/FontArea3/RichTextLabel2".text = " Pespi or coco cola?
+		hmmm.."
+		$"CanvasLayer/cooking meat/FontArea3/400".text = "$2.50k"
 		$"CanvasLayer/use real meat".texture_normal = load("res://assets/shipblocked.png")
+
+		$"CanvasLayer/use real meat/FontArea4/RichTextLabel3".text = " Political tensions (gulp) "
+		$"CanvasLayer/use real meat/FontArea4/900".text = "$7.00k"
 		$"CanvasLayer/serv w_ fried".texture_normal = load("res://assets/locLLysourcedmeatsmh.png")
+		$"CanvasLayer/serv w_ fried/FontArea5/2000".text = "$20,000"
 		$CanvasLayer/UPGRDCHEZ.texture_normal = load("res://assets/bigmacc.png")
+		$CanvasLayer/UPGRDCHEZ/RichTextLabel.text = "$70,000"
 		if money >= 500  and !bought1:
 			$CanvasLayer/BUY1/AnimationPlayer.play("fade")
 		else :
@@ -78,15 +86,19 @@ func _process(delta: float) -> void:
 			$CanvasLayer/BUY2/AnimationPlayer.play("fade")
 		else:
 			$CanvasLayer/BUY2/AnimationPlayer.stop()
-			
+		if money >= 2500 and !bought3:
+			$CanvasLayer/BUY3/AnimationPlayer.play("fade")
+		else:
+			$CanvasLayer/BUY3/AnimationPlayer.stop()
+
 			
 	if ham:
-		if money >= 50  :
+		if money >= 50  and !bought1 :
 			$CanvasLayer/BUY1/AnimationPlayer.play("fade")
 		else :
 			$CanvasLayer/BUY1/AnimationPlayer.stop()
 
-		if money >= 150 :
+		if money >= 150 and  !bought2 :
 			$CanvasLayer/BUY2/AnimationPlayer.play("fade")
 		else:
 			$CanvasLayer/BUY2/AnimationPlayer.stop()
@@ -144,8 +156,8 @@ func _on_money_timer_timeout() -> void:
 func _on_mystermy_meat_pressed() -> void:
 	if money >= 150 and ham:
 		money -= 150
-		moneyperclick += 2
-		moneypersec += 1
+		moneyperclick += 4
+		moneypersec += 2
 		$"CanvasLayer/mystermy meat/AnimationPlayer".play("pressed")
 		$CanvasLayer/Done2/AnimationPlayer.play("DONE")
 		$"CanvasLayer/mystermy meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -163,29 +175,44 @@ func _on_mystermy_meat_pressed() -> void:
 func _on_cooking_meat_pressed() -> void:
 	if money >= 400 and ham:
 		money -= 400
-		moneyperclick += 4
-		moneypersec += 1
+		moneyperclick += 5
+		moneypersec += 3
+		$"CanvasLayer/cooking meat/AnimationPlayer".play("pressed")
+		$CanvasLayer/Done3/AnimationPlayer.play("DONE")
+		$"CanvasLayer/cooking meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
+		bought3 = true
+		
+	if money >= 2500 and chez:
+		money -= 2500
+		moneyperclick += 10
+		moneypersec += 50
 		$"CanvasLayer/cooking meat/AnimationPlayer".play("pressed")
 		$CanvasLayer/Done3/AnimationPlayer.play("DONE")
 		$"CanvasLayer/cooking meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
 		bought3 = true
 
-
 func _on_use_real_meat_pressed() -> void:
 	if money >= 900 and ham:
 		money -= 900
-		moneyperclick += 2
-		moneypersec += 2
+		moneyperclick += 5
+		moneypersec += 7
+		$"CanvasLayer/use real meat/AnimationPlayer".play("presed")
+		$CanvasLayer/Done4/AnimationPlayer.play("DONE")
+		$"CanvasLayer/use real meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
+		bought4 = true
+	if money >= 7000 and chez:
+		money -= 7000
+		moneyperclick += 50
+		moneypersec += 50
 		$"CanvasLayer/use real meat/AnimationPlayer".play("presed")
 		$CanvasLayer/Done4/AnimationPlayer.play("DONE")
 		$"CanvasLayer/use real meat".mouse_filter = Control.MOUSE_FILTER_IGNORE
 		bought4 = true
 
-
 func _on_serv_w__fried_pressed() -> void:
 		if money >= 2000 and ham:
 			money -= 2000
-			moneyperclick += 10
+			moneyperclick += 15
 			
 			moneypersec += 10
 			$"CanvasLayer/serv w_ fried/AnimationPlayer".play("pesed")
@@ -222,6 +249,18 @@ func _on_upgrdchez_pressed() -> void:
 		bought3 = false
 		bought4 = false
 		bought5 = false
-
+		$"CanvasLayer/mystermy meat/FontArea2/RichTextLabel".position.x -= 4
 		# ^ fixes layout issue
+		#fixing the issue where done icon appears b4 buying in chez stage
+		$CanvasLayer/Done1/AnimationPlayer.play("RESET")
+		$CanvasLayer/Done2/AnimationPlayer.play("RESET")
+		$CanvasLayer/Done3/AnimationPlayer.play("RESET")
+		$CanvasLayer/Done4/AnimationPlayer.play("RESET")
+		$CanvasLayer/Done5/AnimationPlayer.play("RESET")
+		#and fixing issue where mouse filter still ignores after rennovation to chez twt..
+		$"CanvasLayer/serv w_ fried".mouse_filter = Control.MOUSE_FILTER_STOP
+		$"CanvasLayer/use real meat".mouse_filter = Control.MOUSE_FILTER_STOP
+		$"CanvasLayer/cooking meat".mouse_filter = Control.MOUSE_FILTER_STOP
+		$"CanvasLayer/mystermy meat".mouse_filter = Control.MOUSE_FILTER_STOP
+		$"CanvasLayer/buttered buns".mouse_filter = Control.MOUSE_FILTER_STOP
 #upd nvm will add it whithing here only
