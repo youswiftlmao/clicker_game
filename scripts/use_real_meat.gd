@@ -13,8 +13,9 @@ func _ready() -> void:
 func _on_mouse_entered() -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("hover")
-
+	$"../../hover".play()
 
 func _on_mouse_exited() -> void:
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("unhover")
+	$"../../unhover".play()

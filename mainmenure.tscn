@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://curixmkosds54"]
+
+[ext_resource type="Texture2D" uid="uid://ueps2xkuslq6" path="res://assets/AAA.png" id="1_bfygw"]
+[ext_resource type="Texture2D" uid="uid://ck31td137ic1o" path="res://assets/playbtn.png" id="1_enfdm"]
+[ext_resource type="Script" uid="uid://dwsv4kj4ll88g" path="res://scripts/play.gd" id="2_ljl6s"]
+[ext_resource type="Texture2D" uid="uid://bb0ayseyh1uv8" path="res://assets/ham.png" id="2_v52am"]
+[ext_resource type="FontFile" uid="uid://bh6jvsa7eqolq" path="res://text/Jersey10-Regular.ttf" id="3_v52am"]
+[ext_resource type="AudioStream" uid="uid://b1smbks6hfdbh" path="res://sounds/Video Project.mp3" id="6_s4qyn"]
+
+[sub_resource type="Animation" id="Animation_enfdm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(295, 296)]
+}
+
+[sub_resource type="Animation" id="Animation_ljl6s"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.8660661, -2.14),
+"update": 0,
+"values": [Vector2(295, 296), Vector2(295, 539)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4qyn"]
+_data = {
+&"RESET": SubResource("Animation_enfdm"),
+&"new_animation": SubResource("Animation_ljl6s")
+}
+
+[sub_resource type="Gradient" id="Gradient_8agmr"]
+offsets = PackedFloat32Array(0.8137255, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_boyg6"]
+gradient = SubResource("Gradient_8agmr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_22of4"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(40, 0, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angular_velocity_min = -4.000016
+angular_velocity_max = 14.999984
+gravity = Vector3(0, 50, 0)
+color_ramp = SubResource("GradientTexture1D_boyg6")
+
+[node name="mainmenure" type="Node2D" unique_id=1838201795]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1520022103]
+
+[node name="play" type="TextureButton" parent="CanvasLayer" unique_id=922456660]
+offset_left = 572.99994
+offset_top = 378.99997
+offset_right = 636.99994
+offset_bottom = 410.99997
+scale = Vector2(7.6268034, 7.6268034)
+texture_normal = ExtResource("1_enfdm")
+script = ExtResource("2_ljl6s")
+
+[node name="BG" type="Sprite2D" parent="CanvasLayer" unique_id=2143370836]
+z_index = -109
+position = Vector2(576.85, 328.05)
+scale = Vector2(7.214375, 4.099375)
+texture = ExtResource("1_bfygw")
+
+[node name="Ham" type="Sprite2D" parent="CanvasLayer" unique_id=882173836]
+position = Vector2(295, 296)
+scale = Vector2(16.374968, 16.374968)
+texture = ExtResource("2_v52am")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Ham" unique_id=1041800870]
+libraries/ = SubResource("AnimationLibrary_s4qyn")
+autoplay = &"new_animation"
+
+[node name="BURGERDRIPPERS" type="GPUParticles2D" parent="CanvasLayer" unique_id=1421237451]
+z_index = -68
+position = Vector2(567, 0.9999695)
+scale = Vector2(16.374966, 16.374966)
+amount = 14
+texture = ExtResource("2_v52am")
+lifetime = 5.0
+preprocess = 2.15
+speed_scale = 5.83
+process_material = SubResource("ParticleProcessMaterial_22of4")
+
+[node name="MONEYCOUNT" type="RichTextLabel" parent="CanvasLayer" unique_id=1264759135]
+offset_left = 516.00006
+offset_top = 24.000006
+offset_right = 1113.8
+offset_bottom = 383.05377
+rotation = 3.1415927
+scale = Vector2(-1.1371778, -1.1371778)
+pivot_offset = Vector2(298, 86)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/outline_size = 23
+theme_override_fonts/normal_font = ExtResource("3_v52am")
+theme_override_font_sizes/normal_font_size = 160
+text = "BURGER 
+CLICKER!!"
+horizontal_alignment = 1
+
+[node name="bg" type="AudioStreamPlayer2D" parent="." unique_id=1523890573]
+stream = ExtResource("6_s4qyn")
+volume_db = -7.373
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer/play" method="_on_pressed"]
